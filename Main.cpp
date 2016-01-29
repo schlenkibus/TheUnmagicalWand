@@ -1,7 +1,9 @@
 #include <iostream>
+#include "App.hpp"
 
 int main()
 {
-	std::cout << "Hello World" << std::endl;
+	App app;
+	app.mainLoop();
 	return 0;
 }
