@@ -33,6 +33,7 @@ void App::update()
   switch(state)
   {
     case splash:
+      splashScreen.render(*window);
       return;
     break;
     case menu:
