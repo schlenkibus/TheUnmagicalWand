@@ -3,7 +3,7 @@
 App::App()
 {
   window = new sf::RenderWindow(sf::VideoMode(1000, 800), "The Unmagical Wand", sf::Style::Close);
-
+  state = splash;
 }
 
 App::~App()
@@ -23,6 +23,29 @@ void App::mainLoop()
       }
     }
     window->clear();
+    update();
     window->display();
+  }
+}
+
+void App::update()
+{
+  switch(state)
+  {
+    case splash:
+      return;
+    break;
+    case menu:
+      return;
+    break;
+    case game:
+      return;
+    break;
+    case endScreen:
+      return;
+    break;
+    default:
+      return;
+    break;
   }
 }
