@@ -6,9 +6,10 @@ JsonParser::JsonParser(std::string fileName)
   path = "json/";
   path += fileName;
   stream.open(path.c_str(), std::fstream::in);
-  while(!stream.eof())
+  std::string temp;
+  while(std::getline(stream, temp))
   {
-    //lines.emplace_back(stream.getline());
+    lines.push_back(temp);
   }
 }
 
@@ -17,13 +18,27 @@ JsonParser::~JsonParser()
   stream.close();
 }
 
-void InterpretLine(std::string searchTerm)
+bool JsonParser::searchForTerm(std::string searchTerm)
 {
-  /*for(int i = 0; i < lines.size(); i++)
+  for(unsigned int i = 0; i < lines.size(); i++)
   {
     if(lines[i].find(searchTerm) != std::string::npos)
     {
-
+      return true;
     }
-  }*/
+  }
+  return false;
+}
+
+bool JsonParser::searchForTerms(std::string term1, std::string term2)
+{
+  for(unsigned int i = 0; i < lines.size(); i++)
+  {
+    if(lines[i].find(term1) != std::string::npos
+    && lines[i].find(term2) != std::string::npos)
+    {
+      return true;
+    }
+  }
+  return false;
 }

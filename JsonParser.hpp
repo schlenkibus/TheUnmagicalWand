@@ -12,5 +12,6 @@ private:
 public:
   JsonParser(std::string fileName);
   ~JsonParser();
-  void InterpretLine(std::string searchTerm);
+  bool searchForTerm(std::string searchTerm);
+  bool searchForTerms(std::string term1, std::string term2);
 };

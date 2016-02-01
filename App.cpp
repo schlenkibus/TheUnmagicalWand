@@ -2,6 +2,7 @@
 
 App::App()
 {
+  parser = new JsonParser("test.json");
   window = new sf::RenderWindow(sf::VideoMode(1000, 800), "The Unmagical Wand", sf::Style::Close);
   state = splash;
 }
@@ -9,10 +10,12 @@ App::App()
 App::~App()
 {
   delete window;
+  delete parser;
 }
 
 void App::mainLoop()
 {
+
   while(window->isOpen())
   {
     while(window->pollEvent(event))
