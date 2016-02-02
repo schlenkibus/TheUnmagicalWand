@@ -15,7 +15,6 @@ App::~App()
 
 void App::mainLoop()
 {
-
   while(window->isOpen())
   {
     while(window->pollEvent(event))
@@ -37,6 +36,8 @@ void App::update()
   {
     case splash:
       splashScreen.render(*window);
+      if(!splashScreen.getActive())
+        state = menu;
       return;
     break;
     case menu:
