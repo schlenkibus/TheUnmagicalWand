@@ -36,8 +36,10 @@ void App::update()
   {
     case splash:
       splashScreen.render(*window);
-      if(!splashScreen.getActive())
+      if(splashScreen.getActive() == false)
+      {
         state = menu;
+      }
       return;
     break;
     case menu:
