@@ -36,6 +36,7 @@ void App::update()
   {
     case splash:
       splashScreen.render(*window);
+      splashScreen.update();
       if(splashScreen.getActive() == false)
       {
         state = menu;
@@ -43,6 +44,7 @@ void App::update()
       return;
     break;
     case menu:
+      mainMenu.render(*window);
       return;
     break;
     case game:
