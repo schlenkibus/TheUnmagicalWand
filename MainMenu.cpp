@@ -28,3 +28,8 @@ void MainMenu::render(sf::RenderWindow &window)
     window.draw(controlsButton);
     window.draw(exitButton);
 }
+
+void MainMenu::update(sf::RenderWindow& window)
+{
+  //TODO Buttons-Switch + external functions for interaction?!
+}

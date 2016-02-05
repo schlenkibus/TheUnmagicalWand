@@ -9,6 +9,6 @@ private:
   sf::Texture texBack, texStart, texContr, texExit;
 public:
   MainMenu();
-  //void update(sf::RenderWindow& window);
+  void update(sf::RenderWindow& window);
   void render(sf::RenderWindow& window);
 };
