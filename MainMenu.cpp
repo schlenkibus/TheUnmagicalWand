@@ -1,6 +1,7 @@
 #include "MainMenu.hpp"
 
 MainMenu::MainMenu()
+  : buttonParser("menu.json")
 {
   if(!texBack.loadFromFile("art/backgrounds/blackWall.png"))
     exit(2);
@@ -14,6 +15,8 @@ MainMenu::MainMenu()
   startButton.setTexture(texStart);
   controlsButton.setTexture(texContr);
   exitButton.setTexture(texExit);
+
+  std::cout << buttonParser.searchForTerm("startButton") << std::endl;
 
   background.setPosition(0, 0);
   startButton.setPosition(400, 300);
