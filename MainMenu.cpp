@@ -35,4 +35,8 @@ void MainMenu::render(sf::RenderWindow &window)
 void MainMenu::update(sf::RenderWindow& window)
 {
   //TODO Buttons-Switch + external functions for interaction?!
+  if(startButton.getGlobalBounds().intersects(sf::Vector2f(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)))
+  {
+    exit(0);
+  }
 }
