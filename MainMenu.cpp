@@ -34,5 +34,18 @@ void MainMenu::render(sf::RenderWindow &window)
 
 void MainMenu::update(sf::RenderWindow& window)
 {
-  //TODO Buttons-Switch + external functions for interaction?!
+  if(isPressed(exitButton, window))
+    exit(1);
+}
+
+bool MainMenu::isPressed(sf::Sprite& sprite, sf::RenderWindow &window)
+{
+  if(sf::Mouse::isButtonPressed(sf::Mouse::Left))
+  {
+    if(sprite.getGlobalBounds().contains((sf::Vector2f) sf::Mouse::getPosition(window)))
+    {
+      return true;
+    }
+  }
+  return false;
 }
