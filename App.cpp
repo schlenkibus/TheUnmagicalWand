@@ -45,6 +45,8 @@ void App::update()
     break;
     case menu:
       mainMenu.update(*window);
+      if(mainMenu.controlsPressed())
+        state = controls;
       mainMenu.render(*window);
       return;
     break;
@@ -54,6 +56,14 @@ void App::update()
     case endScreen:
       return;
     break;
+    case controls:
+      menuHelp.update();
+      if(menuHelp.getActive() == false)
+      {
+        menuHelp.setActive();
+        state = menu;
+      }
+      menuHelp.render(*window);
     default:
       return;
     break;

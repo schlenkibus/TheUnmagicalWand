@@ -22,6 +22,8 @@ MainMenu::MainMenu()
   startButton.setPosition(400, 300);
   controlsButton.setPosition(400, 450);
   exitButton.setPosition(400, 600);
+
+  controls = false;
 }
 
 void MainMenu::render(sf::RenderWindow &window)
@@ -36,6 +38,12 @@ void MainMenu::update(sf::RenderWindow& window)
 {
   if(isPressed(exitButton, window))
     exit(1);
+//  else if(isPressed(startButton, window))
+
+  if(isPressed(controlsButton, window))
+    controls = true;
+  else
+    controls = false;
 }
 
 bool MainMenu::isPressed(sf::Sprite& sprite, sf::RenderWindow &window)
@@ -48,4 +56,9 @@ bool MainMenu::isPressed(sf::Sprite& sprite, sf::RenderWindow &window)
     }
   }
   return false;
+}
+
+bool MainMenu::controlsPressed()
+{
+  return controls;
 }
