@@ -24,6 +24,7 @@ MainMenu::MainMenu()
   exitButton.setPosition(400, 600);
 
   controls = false;
+  gameStart = false;
 }
 
 void MainMenu::render(sf::RenderWindow &window)
@@ -38,7 +39,11 @@ void MainMenu::update(sf::RenderWindow& window)
 {
   if(isPressed(exitButton, window))
     exit(1);
-//  else if(isPressed(startButton, window))
+
+  if(isPressed(startButton, window))
+    gameStart = true;
+  else
+    gameStart = false;
 
   if(isPressed(controlsButton, window))
     controls = true;
@@ -61,4 +66,9 @@ bool MainMenu::isPressed(sf::Sprite& sprite, sf::RenderWindow &window)
 bool MainMenu::controlsPressed()
 {
   return controls;
+}
+
+bool MainMenu::getGameStart()
+{
+  return gameStart;
 }

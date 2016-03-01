@@ -38,15 +38,15 @@ void App::update()
       splashScreen.update();
       splashScreen.render(*window);
       if(splashScreen.getActive() == false)
-      {
         state = menu;
-      }
       return;
     break;
     case menu:
       mainMenu.update(*window);
       if(mainMenu.controlsPressed())
         state = controls;
+      if(mainMenu.getGameStart())
+        state = game;
       mainMenu.render(*window);
       return;
     break;
