@@ -19,10 +19,17 @@ SplashScreen::SplashScreen()
 
 void SplashScreen::update()
 {
-  if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
+  bool isp = false;
+  for (int i = sf::Keyboard::A; i <= sf::Keyboard::Z; ++i )
   {
-    shouldBeActive = false;
+    if(sf::Keyboard::isKeyPressed(static_cast<sf::Keyboard::Key>(i)))
+    {
+      isp = true;
+      break;
+    }
   }
+  if(isp == true)
+    shouldBeActive = false;
 }
 
 void SplashScreen::render(sf::RenderWindow& window)
