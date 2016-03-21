@@ -23,7 +23,7 @@ void Game::update(sf::RenderWindow &window)
   switch(currentGameState)
   {
     case start:
-      std::cout << "GAME LÄUFT!" << std::endl;
+    
     break;
   }
   if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
