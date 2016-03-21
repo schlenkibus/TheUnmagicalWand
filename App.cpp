@@ -46,11 +46,15 @@ void App::update()
       if(mainMenu.controlsPressed())
         state = controls;
       if(mainMenu.getGameStart())
-        state = game;
+        state = inGame;
       mainMenu.render(*window);
       return;
     break;
-    case game:
+    case inGame:
+      game.update(*window);
+      if(game.getGameState() == Game::returnToMenu)
+        state = menu;
+      game.render(*window);
       return;
     break;
     case endScreen:

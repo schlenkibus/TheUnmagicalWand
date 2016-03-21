@@ -4,6 +4,7 @@
 #include "JsonParser.hpp"
 #include "MainMenu.hpp"
 #include "MenuHelp.hpp"
+#include "Game.hpp"
 
 class App
 {
@@ -13,8 +14,9 @@ private:
   SplashScreen splashScreen;
   MenuHelp menuHelp;
   MainMenu mainMenu;
+  Game game;
   JsonParser * parser;
-  enum appState {splash, menu, game, endScreen, controls};
+  enum appState {splash, menu, inGame, endScreen, controls};
   appState state;
 public:
   App();
