@@ -32,7 +32,7 @@ void Game::update(sf::RenderWindow &window)
 
 void Game::render(sf::RenderWindow& window)
 {
-  //TODO add render stuff!
+  player.draw(window);
 }
 
 Game::GameState Game::getGameState()

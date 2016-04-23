@@ -5,7 +5,5 @@ program: $(TheUnmagicalWand)
 	./TheUnmagicalWand
 
 headers:
-	g++ *.hpp
-
-clean:
 	rm *.hpp.gch
+	g++ *.hpp

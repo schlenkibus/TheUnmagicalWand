@@ -3,6 +3,7 @@
 #include "SFML/Graphics.hpp"
 #include "Level.hpp"
 #include <iostream>
+#include "Player.hpp"
 
 class Game
 {
@@ -22,4 +23,5 @@ public:
   GameState getGameState();
 private:
   std::vector<Level> levels;
+  Player player;
 };
