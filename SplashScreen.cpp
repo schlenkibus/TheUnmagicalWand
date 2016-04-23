@@ -14,11 +14,22 @@ SplashScreen::SplashScreen()
   Sprite.setTexture(Logo, true);
   Sprite.setPosition(sf::Vector2f(0, 0));
   KeySprite.setTexture(KeyTex);
-  KeySprite.setPosition(343, 187);
+  KeySprite.setPosition(480, 590);
+  KeySprite.setOrigin(KeySprite.getLocalBounds().width / 2, KeySprite.getLocalBounds().height / 2);
 }
 
 void SplashScreen::update()
 {
+  if(sizeTimer.getElapsedTime().asSeconds() <= 0.75f)
+    KeySprite.setScale(1.1f, 1.1f);
+  else if(sizeTimer.getElapsedTime().asSeconds() >= 0.75f)
+    KeySprite.setScale(0.9f, 0.9f);
+  if(sizeTimer.getElapsedTime().asSeconds() >= 1.5f)
+    sizeTimer.restart();
+
+  if(timer.getElapsedTime().asSeconds() <= 2) //Allow cont after 2 sec
+    return;
+
   bool isp = false;
   for (int i = sf::Keyboard::A; i <= sf::Keyboard::Z; ++i )
   {
