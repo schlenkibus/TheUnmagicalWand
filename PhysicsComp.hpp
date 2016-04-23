@@ -2,9 +2,14 @@
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include <SFML/System.hpp>
 #include <memory>
 
 #define gravity 9,8
+#define maxYspeed 2
+#define maxXspeed 2
+#define negAcc 0.05f
+#define posAcc 0.33f
 
 class PhysicsComponent
 {
@@ -13,5 +18,8 @@ class PhysicsComponent
     sf::Vector2f update(); //returns new Position
   private:
     //TODO list w/ leveldata
+    //std::shared_ptr<typename _Tp> entetys;
     sf::Vector2f position, size;
+    float xAcc, yAcc;
+    sf::Vector2f acc;
 };

@@ -5,6 +5,7 @@ App::App()
   parser = new JsonParser("test.json");
   window = new sf::RenderWindow(sf::VideoMode(1000, 750), "The Unmagical Wand", sf::Style::Close);
   state = splash;
+  //window->setFramerateLimit(60);
 }
 
 App::~App()

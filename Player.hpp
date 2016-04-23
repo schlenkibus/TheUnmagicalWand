@@ -12,7 +12,7 @@ class Player
         playerSprite.setTexture(playerTexture);
     };
     void draw(sf::RenderWindow& window);
-  private:  
+  private:
     sf::Texture playerTexture;
     sf::Sprite playerSprite;
     PhysicsComponent phys;
