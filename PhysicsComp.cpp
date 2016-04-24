@@ -39,7 +39,7 @@ sf::Vector2f PhysicsComponent::update()
       acc.x = 0;
     }
     //Gravity
-    if(position.y + size.y + acc.y <= 700.0f)
+    if(position.y + size.y <= 637.0f)
     {
       if(acc.y <= maxYspeed)
         acc.y = acc.y + 1;
@@ -47,6 +47,12 @@ sf::Vector2f PhysicsComponent::update()
     else
     {
       acc.y = 0;
+    }
+
+    //Fix Platform and Ground-Collison
+    if(position.y > 637.0f)
+    {
+      position.y = 637.0f - size.y;
     }
 
     if(canJump == true && sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
@@ -57,7 +63,7 @@ sf::Vector2f PhysicsComponent::update()
       inJump = true;
     }
 
-    if(inJump && position.y + size.y + acc.y <= 700.0f) //TODO Platformcollison
+    if(inJump && position.y + size.y <= 637.0f) //TODO Platformcollison
     {
       acc.y = acc.y - 0.4f;
     }

@@ -15,4 +15,5 @@ private:
   Platform* testPlatform;
   sf::Sprite background;
   TextureManager texMan;
+  sf::Texture backgroundTex, platformTex;
 };

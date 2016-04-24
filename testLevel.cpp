@@ -2,9 +2,11 @@
 
 testLevel::testLevel()
 {
-  testPlatform = new Platform(sf::Vector2f(200, 550),
-                              texMan.getTexture("art/platforms/platform2x1_2.png"));
-  background.setTexture(texMan.getTexture("art/backgrounds/prison.png"), true);
+  platformTex = texMan.getTexture("art/platforms/platform2x1_2.png");
+  testPlatform = new Platform(sf::Vector2f(200, 550), platformTex);
+
+  backgroundTex = texMan.getTexture("art/backgrounds/prison.png");
+  background.setTexture(backgroundTex);
   background.setPosition(0, 0);
 }
 
