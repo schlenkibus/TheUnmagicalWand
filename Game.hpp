@@ -4,7 +4,7 @@
 #include "Level.hpp"
 #include <iostream>
 #include "Player.hpp"
-
+#include "testLevel.hpp"
 class Game
 {
 public:
@@ -24,4 +24,5 @@ public:
 private:
   std::vector<Level> levels;
   Player player;
+  testLevel lvl;
 };

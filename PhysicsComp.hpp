@@ -15,11 +15,10 @@ class PhysicsComponent
 {
   public:
     PhysicsComponent(sf::Vector2f pos, sf::Vector2f s); //Has to obtain leveldata
-    sf::Vector2f update(); //returns new Position
+    sf::Vector2f update(); //returns new Position to parent
   private:
-    //TODO list w/ leveldata
-    //std::shared_ptr<typename _Tp> entetys;
     sf::Vector2f position, size;
-    float xAcc, yAcc;
     sf::Vector2f acc;
+    bool canJump, inJump;
+    sf::Clock jumpTimer, jumpTreshold;
 };

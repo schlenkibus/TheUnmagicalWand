@@ -23,7 +23,7 @@ void Game::update(sf::RenderWindow &window)
   switch(currentGameState)
   {
     case start:
-    
+
     break;
   }
   if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
@@ -32,6 +32,7 @@ void Game::update(sf::RenderWindow &window)
 
 void Game::render(sf::RenderWindow& window)
 {
+  lvl.draw(window);
   player.draw(window);
 }
 

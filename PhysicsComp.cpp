@@ -4,10 +4,10 @@ PhysicsComponent::PhysicsComponent(sf::Vector2f pos, sf::Vector2f s)
 {
     size = s;
     position = pos;
-    xAcc = 0;
-    yAcc = 0;
     acc.x = 0;
     acc.y = 0;
+    canJump = false;
+    inJump = true;
 }
 
 sf::Vector2f PhysicsComponent::update()
@@ -48,7 +48,26 @@ sf::Vector2f PhysicsComponent::update()
     {
       acc.y = 0;
     }
-    //enforce speedlimit!
+
+    if(canJump == true && sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+    {
+      acc.y = -7.5f;
+      jumpTimer.restart();
+      canJump = false;
+      inJump = true;
+    }
+
+    if(inJump && position.y + size.y + acc.y <= 700.0f) //TODO Platformcollison
+    {
+      acc.y = acc.y - 0.4f;
+    }
+    else if(acc.y < 0.5f && acc.y > -0.5f)
+    {
+      acc.y = 0;
+      canJump = true;
+      inJump = false;
+    }
+
     if(acc.x > maxXspeed)
     {
       acc.x = maxXspeed;
@@ -57,7 +76,6 @@ sf::Vector2f PhysicsComponent::update()
     {
       acc.x = -maxXspeed;
     }
-    std::cout << "Acc: " << acc.x << "/" << acc.y << std::endl;
     position.x = position.x + acc.x;
     position.y = position.y + acc.y;
     return position;
