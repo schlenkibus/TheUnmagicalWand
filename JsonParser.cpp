@@ -43,7 +43,7 @@ bool JsonParser::searchForTerms(std::string term1, std::string term2)
   return false;
 }
 
-string JsonParser::getLineWithTerm(std::string searchTerm)
+std::string JsonParser::getLineWithTerm(std::string searchTerm)
 {
   for(unsigned int i = 0; i < lines.size(); i++)
   {
@@ -55,7 +55,7 @@ string JsonParser::getLineWithTerm(std::string searchTerm)
   return "0";
 }
 
-string JsonParser::getLineWithTerms(std::string term1, std::string term2)
+std::string JsonParser::getLineWithTerms(std::string term1, std::string term2)
 {
   for(unsigned int i = 0; i < lines.size(); i++)
   {
@@ -66,4 +66,35 @@ string JsonParser::getLineWithTerms(std::string term1, std::string term2)
     }
   }
   return "0";
+}
+
+unsigned int JsonParser::getMatches(std::string term)
+{
+  unsigned int temp = 0;
+  for(unsigned int i = 0; i < lines.size(); i++)
+  {
+    if(lines[i].find(term) != std::string::npos)
+    {
+      temp++;
+    }
+  }
+  return temp;
+}
+
+unsigned int JsonParser::getLines()
+{
+  return lines.size();
+}
+
+std::string JsonParser::getLine(unsigned int number)
+{
+  return lines[number];
+}
+
+std::string JsonParser::getLineWithMatch(unsigned int number, std::string term)
+{
+  if(lines[number].find(term) != std::string::npos)
+  {
+    return lines[number];
+  }
 }
