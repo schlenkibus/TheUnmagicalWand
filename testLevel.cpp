@@ -4,13 +4,19 @@
 
 testLevel::testLevel()
 {
+
+  platformTex = texMan.getTexture("art/platforms/platform2x1_2.png");
+
   levelData = new JsonParser("testLevel.json");
+
+  std::cout << "sizeof(platforms) " << sizeof(platforms) << std::endl;
 
   if(levelData->searchForTerm("platform") == true)
   {
     std::string tempString, tempPosString, tempX, tempY;
+    std::string::size_type sz;
     int tempTempY;
-    for(unsigned int i = 0; i <= levelData->getLines()-1; i++) //does it x times. x -> number of matches
+    for(unsigned int i = 0; i <= levelData->getLines()-1; i++)
     {
       tempString = levelData->getLineWithMatch(i, "platform");
       if(!tempString.empty())
@@ -31,10 +37,15 @@ testLevel::testLevel()
           }
         }
       }
+      float x, y;
+      x = std::stof(tempX, &sz);
+      y = std::stof(tempY, &sz);
+      platforms.emplace_back(new Platform(sf::Vector2f(x, y), platformTex));
     }
   }
 
-  platformTex = texMan.getTexture("art/platforms/platform2x1_2.png");
+  std::cout << "sizeof(platforms) " << sizeof(platforms) << std::endl;
+
   testPlatform = new Platform(sf::Vector2f(200, 550), platformTex);
   testPlatform->sprite.setTexture(platformTex);
   testPlatform->sprite.setColor(color);
@@ -53,4 +64,8 @@ void testLevel::draw(sf::RenderWindow &window)
 {
   window.draw(background);
   testPlatform->draw(window);
+  for(auto u: platforms)
+  {
+    u->draw(window);
+  }
 }

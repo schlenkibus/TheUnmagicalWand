@@ -5,7 +5,7 @@ program: $(TheUnmagicalWand)
 
 headers:
 	rm *.hpp.gch
-	g++ *.hpp
+	g++ -std=c++11 *.hpp
 
 debug:
 		g++ -g -O0 -std=c++11 *.cpp -o TheBrokenWand -I/home/jscheil/.sfml/include -L/home/jscheil/.sfml/lib -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lsfml-network

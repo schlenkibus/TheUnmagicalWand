@@ -1,12 +1,15 @@
 #pragma once
 
+#include <list>
+#include <memory>
 #include <SFML/Graphics.hpp>
 #include "platform.hpp"
 #include "TextureManager.hpp"
 #include <iostream>
 #include "JsonParser.hpp"
-#include <list>
-#include <memory>
+
+typedef std::shared_ptr<Platform> t_Platforms;
+typedef std::list<t_Platforms> t_List;
 
 class testLevel
 {
@@ -15,7 +18,7 @@ public:
   ~testLevel();
   void draw(sf::RenderWindow &window);
 private:
-  std::list<Platform> platforms;
+  t_List platforms;
   JsonParser* levelData;
   Platform* testPlatform;
   sf::Sprite background;
