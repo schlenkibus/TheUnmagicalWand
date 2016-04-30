@@ -43,27 +43,27 @@ bool JsonParser::searchForTerms(std::string term1, std::string term2)
   return false;
 }
 
-int JsonParser::getLineWithTerm(std::string searchTerm)
+string JsonParser::getLineWithTerm(std::string searchTerm)
 {
   for(unsigned int i = 0; i < lines.size(); i++)
   {
     if(lines[i].find(searchTerm) != std::string::npos)
     {
-      return i;
+      return lines[i];
     }
   }
-  return -1;
+  return "0";
 }
 
-int JsonParser::getLineWithTerms(std::string term1, std::string term2)
+string JsonParser::getLineWithTerms(std::string term1, std::string term2)
 {
   for(unsigned int i = 0; i < lines.size(); i++)
   {
     if(lines[i].find(term1) != std::string::npos
     && lines[i].find(term2) != std::string::npos)
     {
-      return i;
+      return lines[i];
     }
   }
-  return -1;
+  return "0";
 }

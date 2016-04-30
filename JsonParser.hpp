@@ -14,6 +14,6 @@ public:
   ~JsonParser();
   bool searchForTerm(std::string searchTerm);
   bool searchForTerms(std::string term1, std::string term2);
-  int getLineWithTerm(std::string searchTerm); //Returns -1 if term was not found
-  int getLineWithTerms(std::string term1, std::string term2); //Returns -1 if Term was not found
+  string getLineWithTerm(std::string searchTerm); //Returns -1 if term was not found
+  string getLineWithTerms(std::string term1, std::string term2); //Returns -1 if Term was not found
 };
