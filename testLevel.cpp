@@ -10,29 +10,27 @@ testLevel::testLevel()
   {
     std::string tempString, tempPosString, tempX, tempY;
     int tempTempY;
-    for(unsigned int i = 0; i <= levelData->getLines(); i++) //does it x times. x -> number of matches
+    for(unsigned int i = 0; i <= levelData->getLines()-1; i++) //does it x times. x -> number of matches
     {
-        tempString = levelData->getLineWithMatch(i, "platform");
-        if(!tempString.empty())
+      tempString = levelData->getLineWithMatch(i, "platform");
+      if(!tempString.empty())
+      {
+        tempPosString = tempString.substr(tempString.find("pos(") + 4);
+        for(int i = 0; i <= tempPosString.size(); i++)
         {
-          tempPosString = tempString.substr(tempString.find("pos(") + 1);
-          for(int i = 0; i <= tempPosString.size(); i++)
+          if(tempPosString[i] == '/')
           {
-            if(tempPosString[i] == char(32))
-            {
-              tempX = tempPosString.substr(0, i);
-              tempTempY = i + 1;
-              std::cout << "tempX" << tempX;
-              std::cout << std::endl << "space pos: " << tempTempY << std::endl;
-            }
-            if(tempPosString[i] == '\n')
-            {
-              tempY = tempPosString.substr(tempTempY, i-tempTempY);
-              std::cout << "tempY: " << tempY << std::endl;
-            }
+            tempX = tempPosString.substr(0, i);
+            tempTempY = i + 1;
+            std::cout << "tempX: " << tempX << std::endl;
           }
-          //platforms.emplace_back(new Platform())
+          if(tempPosString[i] == ')')
+          {
+            tempY = tempPosString.substr(tempTempY, i-tempTempY);
+            std::cout << "tempY: " << tempY << std::endl;
+          }
         }
+      }
     }
   }
 

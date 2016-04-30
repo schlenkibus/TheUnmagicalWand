@@ -97,4 +97,5 @@ std::string JsonParser::getLineWithMatch(unsigned int number, std::string term)
   {
     return lines[number];
   }
+	return "error";
 }
