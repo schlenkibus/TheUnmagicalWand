@@ -24,3 +24,8 @@ sf::Texture TextureManager::getTexture(std::string texName)
     textures[texName] = tex;
     return textures[texName];
 }
+
+TextureManager::~TextureManager()
+{
+  textures.clear();
+}

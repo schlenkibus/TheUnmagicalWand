@@ -17,12 +17,13 @@ testLevel::testLevel()
     int tempTempY;
     float x, y;
 
+    //Iterate through the lines of the levelJson
     for(unsigned int i = 0; i <= levelData->getLines()-1; i++)
     {
-      tempString = levelData->getLineWithMatch(i, "platform");
+      tempString = levelData->getLineWithMatch(i, "platform"); //if line contains "platform" then continue
       if(!tempString.empty())
       {
-        tempString = tempString.substr(tempString.find("pos(") + 4);
+        tempString = tempString.substr(tempString.find("pos(") + 4); //get number after "pos("
         for(int i = 0; i <= tempString.size(); i++)
         {
           if(tempString[i] == '/')
@@ -30,21 +31,18 @@ testLevel::testLevel()
             tempX = tempString.substr(0, i);
             tempTempY = i + 1;
           }
-          if(tempString[i] == ')')
+          if(tempString[i] == ')') //Get the y-value
           {
             tempY = tempString.substr(tempTempY, i-tempTempY);
           }
         }
       }
+      //convert the string to float
       x = std::stof(tempX, &sz);
       y = std::stof(tempY, &sz);
-      platforms.emplace_back(new Platform(sf::Vector2f(x, y), platformTex));
+      platforms.emplace_back(new Platform(sf::Vector2f(x, y), platformTex)); //and create a new platform w/ the position - add it to the list (in a shared pointer)
     }
   }
-
-  testPlatform = new Platform(sf::Vector2f(200, 550), platformTex);
-  testPlatform->sprite.setTexture(platformTex);
-  testPlatform->sprite.setColor(color);
 
   for(auto u: platforms)
   {
@@ -59,13 +57,12 @@ testLevel::testLevel()
 
 testLevel::~testLevel()
 {
-  delete testPlatform;
+  delete levelData;
 }
 
 void testLevel::draw(sf::RenderWindow &window)
 {
   window.draw(background);
-  testPlatform->draw(window);
   for(auto u: platforms)
   {
     u->draw(window);

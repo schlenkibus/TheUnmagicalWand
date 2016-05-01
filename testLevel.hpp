@@ -20,7 +20,6 @@ public:
 private:
   t_List platforms;
   JsonParser* levelData;
-  Platform* testPlatform;
   sf::Sprite background;
   TextureManager texMan;
   sf::Texture backgroundTex, platformTex;

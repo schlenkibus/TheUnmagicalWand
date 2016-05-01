@@ -10,6 +10,7 @@ class TextureManager
 {
 public:
   sf::Texture getTexture(std::string texName);
+  ~TextureManager();
 private:
   std::map<std::string, sf::Texture> textures;
 };
