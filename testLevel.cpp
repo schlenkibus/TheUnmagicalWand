@@ -9,46 +9,48 @@ testLevel::testLevel()
 
   levelData = new JsonParser("testLevel.json");
 
-  std::cout << "sizeof(platforms) " << sizeof(platforms) << std::endl;
-
   if(levelData->searchForTerm("platform") == true)
   {
-    std::string tempString, tempPosString, tempX, tempY;
+    //Temporary variables
+    std::string tempString, tempX, tempY;
     std::string::size_type sz;
     int tempTempY;
+    float x, y;
+
     for(unsigned int i = 0; i <= levelData->getLines()-1; i++)
     {
       tempString = levelData->getLineWithMatch(i, "platform");
       if(!tempString.empty())
       {
-        tempPosString = tempString.substr(tempString.find("pos(") + 4);
-        for(int i = 0; i <= tempPosString.size(); i++)
+        tempString = tempString.substr(tempString.find("pos(") + 4);
+        for(int i = 0; i <= tempString.size(); i++)
         {
-          if(tempPosString[i] == '/')
+          if(tempString[i] == '/')
           {
-            tempX = tempPosString.substr(0, i);
+            tempX = tempString.substr(0, i);
             tempTempY = i + 1;
-            std::cout << "tempX: " << tempX << std::endl;
           }
-          if(tempPosString[i] == ')')
+          if(tempString[i] == ')')
           {
-            tempY = tempPosString.substr(tempTempY, i-tempTempY);
-            std::cout << "tempY: " << tempY << std::endl;
+            tempY = tempString.substr(tempTempY, i-tempTempY);
           }
         }
       }
-      float x, y;
       x = std::stof(tempX, &sz);
       y = std::stof(tempY, &sz);
       platforms.emplace_back(new Platform(sf::Vector2f(x, y), platformTex));
     }
   }
 
-  std::cout << "sizeof(platforms) " << sizeof(platforms) << std::endl;
-
   testPlatform = new Platform(sf::Vector2f(200, 550), platformTex);
   testPlatform->sprite.setTexture(platformTex);
   testPlatform->sprite.setColor(color);
+
+  for(auto u: platforms)
+  {
+    u->sprite.setTexture(platformTex);
+    u->sprite.setColor(color);
+  }
 
   backgroundTex = texMan.getTexture("art/backgrounds/prison.png");
   background.setTexture(backgroundTex);
