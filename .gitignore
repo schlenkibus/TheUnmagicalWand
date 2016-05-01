@@ -38,6 +38,6 @@ Thumbs.db
 
 #Compiled Headers#
 ##################
-*.hpp.gch
+*.gch
 TheUnmagicalWand
 TUW-Server
