@@ -4,10 +4,12 @@
 
 testLevel::testLevel()
 {
+  //Loading level and texturedata
+  levelData = new JsonParser("testLevel.json");
+  texMan.getTexture("art/backgrounds/prison.png");
+  texMan.getTexture("art/platforms/platform2x1_2.png");
 
   platformTex = texMan.getTexture("art/platforms/platform2x1_2.png");
-
-  levelData = new JsonParser("testLevel.json");
 
   if(levelData->searchForTerm("platform") == true)
   {
@@ -50,8 +52,7 @@ testLevel::testLevel()
     u->sprite.setColor(color);
   }
 
-  backgroundTex = texMan.getTexture("art/backgrounds/prison.png");
-  background.setTexture(backgroundTex);
+  background.setTexture(texMan.getRef("art/backgrounds/prison.png"));
   background.setPosition(0, 0);
 }
 

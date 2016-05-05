@@ -8,7 +8,6 @@ sf::Texture TextureManager::getTexture(std::string texName)
     {
         if( texName == it->first )
         {
-            std::cout << "DEBUG_MESSAGE: using existing tetxure from: " << &textures[texName] << std::endl;
             return it->second;
         }
     }
@@ -16,11 +15,8 @@ sf::Texture TextureManager::getTexture(std::string texName)
     if(tex.loadFromFile(texName))
     {
         textures[texName] = tex;
-        std::cout << "DEBUG_MESSAGE: loading texture into: " << &textures[texName] << std::endl;
         return textures[texName];
     }
-
-    std::cout << "GAME_ERROR: Tetxure was not found. It is filled with an empty texture.\n";
     textures[texName] = tex;
     return textures[texName];
 }
