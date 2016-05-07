@@ -7,12 +7,12 @@
 #include <list>
 #include "JsonParser.hpp"
 
-#define gravity 9,8
-#define maxYspeed 2
-#define maxXspeed 2
-#define negAcc 0.05f
-#define posAcc 0.33f
-#define jumpHeight 12.5f
+#define gravity 1.2f
+#define maxYspeed 20
+#define maxXspeed 2.5f
+#define negAcc 0.2f
+#define posAcc 0.75f
+#define jumpHeight 22
 
 typedef std::shared_ptr<sf::Vector2f> t_PlatformVec;
 typedef std::list<t_PlatformVec> t_VecList;
@@ -25,6 +25,8 @@ class PhysicsComponent
     sf::Vector2f update(); //returns new Position to parent
     bool setCurrentLevelAndLoadData(std::string levelJson); //returns false if loading went wrong, deletes the old level before loading new one
     bool checkOnPlatform(); //This is a temp function which does more than the name suggests: it reads the physic-obj and checks if the player is about to land on them -> bad performance
+    void jumpLogic();
+    void moveLogic();
   private:
     JsonParser* levelLoader;
     t_VecList platforms;

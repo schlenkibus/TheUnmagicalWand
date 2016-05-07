@@ -20,49 +20,87 @@ PhysicsComponent::~PhysicsComponent()
 
 sf::Vector2f PhysicsComponent::update()
 {
-  //Real Input
-  if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && canJump == true)
-  {
-    std::cout << "Jump!" << std::endl;
-    inAir = true;
-    canJump = false;
-    jumpFrame = true;
-    jumpY = position.y;
-    acc.y = acc.y - 10;
-  }
-
-  if(jumpFrame == true)
-  {
-    acc.y = acc.y - 0.1f;
-    if(position.y <= jumpY - 44.4f)
-    {
-      jumpFrame = false;
-    }
-  }
-
-  //Gravity and Platforms
-  if(jumpFrame == false)
-  {
-    if(position.y + size.y >= 637.0f) //Gravity-Collison-Fix
-    {
-      position.y = 637.0f - size.y;
-      acc.y = 0;
-      inAir = false;
-    }
-    if(inAir)
-    {
-      acc.y = gravity;
-    }
-    else if(!inAir)
-    {
-      canJump = true;
-    }
-  }
-
-  std::cout <<" canJump: " << canJump << " inAir: " << inAir << std::endl;
+  jumpLogic();
+  moveLogic();
   position.x = position.x + acc.x;
   position.y = position.y + acc.y;
   return position;
+}
+
+void PhysicsComponent::moveLogic()
+{
+  if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)
+  || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+  {
+    if(acc.x >= -maxXspeed)
+    {
+      acc.x -= posAcc;
+    }
+    else if (acc.x <= -maxXspeed)
+    {
+      acc.x = -maxXspeed;
+      //Max Speed reached
+    }
+  }
+  else if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)
+  || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+  {
+    if(acc.x <= maxXspeed)
+    {
+      acc.x += posAcc;
+    }
+    else if (acc.x >= maxXspeed)
+    {
+      acc.x = maxXspeed;
+    }
+  }
+  else
+  {
+    if(acc.x >= -0.7f && acc.x <= 0.7f)
+    {
+      acc.x = 0;
+    }
+    else
+    {
+      if(acc.x < 0)
+        acc.x += negAcc;
+      else if(acc.x > 0)
+        acc.x -= negAcc;
+    }
+  }
+}
+
+void PhysicsComponent::jumpLogic()
+{
+  if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && inAir == false)
+  {
+    acc.y -= jumpHeight;
+    inAir = true;
+  }
+  if(checkOnPlatform() == true)
+  {
+    inAir = false;
+    acc.y = 0;
+  }
+
+  if(inAir)
+  {
+    if(acc.y <= maxYspeed)
+    {
+      acc.y += gravity;
+    }
+    else if(acc.y > maxYspeed)
+    {
+      acc.y = maxYspeed;
+    }
+
+    if(position.y + acc.y + size.y >= 637)
+    {
+      acc.y = 0;
+      position.y = 637 - size.y;
+      inAir = false;
+    }
+  }
 }
 
 bool PhysicsComponent::setCurrentLevelAndLoadData(std::string levelJson)
