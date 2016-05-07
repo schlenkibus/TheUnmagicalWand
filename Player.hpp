@@ -6,7 +6,7 @@
 class Player
 {
   public:
-    Player() : phys(sf::Vector2f(100, 100), sf::Vector2f(40, 100))
+    Player() : phys(sf::Vector2f(100, 100), sf::Vector2f(113, 128))
     {
         playerTexture.loadFromFile("art/player/normal1.png");
         playerSprite.setPosition(100, 100);

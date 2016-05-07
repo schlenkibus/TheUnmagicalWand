@@ -82,6 +82,10 @@ void PhysicsComponent::jumpLogic()
     inAir = false;
     acc.y = 0;
   }
+  else
+  {
+    inAir = true;
+  }
 
   if(inAir)
   {
@@ -94,10 +98,10 @@ void PhysicsComponent::jumpLogic()
       acc.y = maxYspeed;
     }
 
-    if(position.y + acc.y + size.y >= 637)
+    if(position.y + acc.y + (size.y/2) >= 637)
     {
       acc.y = 0;
-      position.y = 637 - size.y;
+      position.y = 637 - (size.y/2);
       inAir = false;
     }
   }
@@ -145,10 +149,13 @@ bool PhysicsComponent::checkOnPlatform() //Expects 173 width of platform
 {
   for(auto u: platforms)
   {
+    std::cout <<"Player position: " << position.x << "/" << position.y << "Platform: " << u->x << "/" << u->y << std::endl;
     if(position.x <= u->x + 173 && position.x >= u->x)
     {
-      if(position.y + acc.y <= u->y + 2 && position.y + acc.y >= u->y - 2)
+      if(position.y + acc.y + size.y <= u->y + 5 && position.y + acc.y + size.y >= u->y - 5)
       {
+        position.y = u->y - size.y;
+        acc.y = 0;
         return true;
       }
       return false;
