@@ -10,6 +10,14 @@ PhysicsComponent::PhysicsComponent(sf::Vector2f pos, sf::Vector2f s)
     inAir = true;
     jumpFrame = false; // a bool to determine if the inJump can be changed this frame
 
+    //Load values for tweaking
+    std::fstream settings;
+    settings.open("json/settings.json", std::ios::in);
+
+    settings >> gravity;
+
+    settings.close();
+
     setCurrentLevelAndLoadData("testLevel.json");
 }
 
@@ -32,26 +40,26 @@ void PhysicsComponent::moveLogic()
   if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)
   || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
   {
-    if(acc.x >= -maxXspeed)
+    if(acc.x >= -_maxXspeed)
     {
-      acc.x -= posAcc;
+      acc.x -= _posAcc;
     }
-    else if (acc.x <= -maxXspeed)
+    else if (acc.x <= -_maxXspeed)
     {
-      acc.x = -maxXspeed;
+      acc.x = -_maxXspeed;
       //Max Speed reached
     }
   }
   else if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)
   || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
   {
-    if(acc.x <= maxXspeed)
+    if(acc.x <= _maxXspeed)
     {
-      acc.x += posAcc;
+      acc.x += _posAcc;
     }
-    else if (acc.x >= maxXspeed)
+    else if (acc.x >= _maxXspeed)
     {
-      acc.x = maxXspeed;
+      acc.x = _maxXspeed;
     }
   }
   else
@@ -63,9 +71,9 @@ void PhysicsComponent::moveLogic()
     else
     {
       if(acc.x < 0)
-        acc.x += negAcc;
+        acc.x += _negAcc;
       else if(acc.x > 0)
-        acc.x -= negAcc;
+        acc.x -= _negAcc;
     }
   }
 }
@@ -74,7 +82,7 @@ void PhysicsComponent::jumpLogic()
 {
   if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && inAir == false)
   {
-    acc.y -= jumpHeight;
+    acc.y -= _jumpHeight;
     inAir = true;
   }
   if(checkOnPlatform() == true)
@@ -89,19 +97,19 @@ void PhysicsComponent::jumpLogic()
 
   if(inAir)
   {
-    if(acc.y <= maxYspeed)
+    if(acc.y < _maxYspeed)
     {
-      acc.y += gravity;
+      acc.y += _gravity;
     }
-    else if(acc.y > maxYspeed)
+    else if(acc.y > _maxYspeed)
     {
-      acc.y = maxYspeed;
+      acc.y = _maxYspeed;
     }
 
-    if(position.y + acc.y + (size.y/2) >= 637)
+    if(position.y + acc.y + size.y >= 637)
     {
       acc.y = 0;
-      position.y = 637 - (size.y/2);
+      position.y = 637 - size.y;
       inAir = false;
     }
   }
@@ -152,7 +160,7 @@ bool PhysicsComponent::checkOnPlatform() //Expects 173 width of platform
     std::cout <<"Player position: " << position.x << "/" << position.y << "Platform: " << u->x << "/" << u->y << std::endl;
     if(position.x <= u->x + 173 && position.x >= u->x)
     {
-      if(position.y + acc.y + size.y <= u->y + 5 && position.y + acc.y + size.y >= u->y - 5)
+      if(position.y + size.y <= u->y && position.y + acc.y + size.y >= u->y)
       {
         position.y = u->y - size.y;
         acc.y = 0;

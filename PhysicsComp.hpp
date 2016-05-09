@@ -7,12 +7,12 @@
 #include <list>
 #include "JsonParser.hpp"
 
-#define gravity 1.2f
-#define maxYspeed 20
-#define maxXspeed 2.5f
-#define negAcc 0.2f
-#define posAcc 0.75f
-#define jumpHeight 22
+#define _gravity 1.5f
+#define _maxYspeed 4.3f
+#define _maxXspeed 2.1f
+#define _negAcc 0.5f
+#define _posAcc 1.25f
+#define _jumpHeight 22
 
 typedef std::shared_ptr<sf::Vector2f> t_PlatformVec;
 typedef std::list<t_PlatformVec> t_VecList;
@@ -29,10 +29,13 @@ class PhysicsComponent
     void moveLogic();
   private:
     JsonParser* levelLoader;
+    JsonParser* settingsLoader;
     t_VecList platforms;
     sf::Vector2f position, size;
     sf::Vector2f acc;
     float jumpY;
     bool canJump, inAir, jumpFrame;
     sf::Clock jumpTimer, jumpTreshold;
+    //Settings-related stuff
+    float gravity, maxYspeed, maxXspeed, negAcc, posAcc, jumpHeight;
 };
