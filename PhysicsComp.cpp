@@ -16,6 +16,8 @@ PhysicsComponent::PhysicsComponent(sf::Vector2f pos, sf::Vector2f s)
 
     settings >> gravity;
 
+    gravity = 0.98f;
+
     settings.close();
 
     setCurrentLevelAndLoadData("testLevel.json");
@@ -106,10 +108,10 @@ void PhysicsComponent::jumpLogic()
       acc.y = _maxYspeed;
     }
 
-    if(position.y + acc.y + size.y >= 637)
+    if(position.y + acc.y >= 666 - size.y)
     {
       acc.y = 0;
-      position.y = 637 - size.y;
+      position.y = 666 - size.y;
       inAir = false;
     }
   }
@@ -157,7 +159,6 @@ bool PhysicsComponent::checkOnPlatform() //Expects 173 width of platform
 {
   for(auto u: platforms)
   {
-    std::cout <<"Player position: " << position.x << "/" << position.y << "Platform: " << u->x << "/" << u->y << std::endl;
     if(position.x <= u->x + 173 && position.x >= u->x)
     {
       if(position.y + size.y <= u->y && position.y + acc.y + size.y >= u->y)
@@ -166,7 +167,6 @@ bool PhysicsComponent::checkOnPlatform() //Expects 173 width of platform
         acc.y = 0;
         return true;
       }
-      return false;
     }
   }
   return false;
