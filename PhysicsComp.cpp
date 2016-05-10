@@ -6,19 +6,8 @@ PhysicsComponent::PhysicsComponent(sf::Vector2f pos, sf::Vector2f s)
     position = pos;
     acc.x = 0;
     acc.y = 0;
-    canJump = false;
     inAir = true;
-    jumpFrame = false; // a bool to determine if the inJump can be changed this frame
-
-    //Load values for tweaking
-    std::fstream settings;
-    settings.open("json/settings.json", std::ios::in);
-
-    settings >> gravity;
-
     gravity = 0.98f;
-
-    settings.close();
 
     setCurrentLevelAndLoadData("testLevel.json");
 }
@@ -49,7 +38,6 @@ void PhysicsComponent::moveLogic()
     else if (acc.x <= -_maxXspeed)
     {
       acc.x = -_maxXspeed;
-      //Max Speed reached
     }
   }
   else if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)
@@ -147,7 +135,6 @@ bool PhysicsComponent::setCurrentLevelAndLoadData(std::string levelJson)
           }
         }
       }
-      //convert the string to float
       x = std::stof(tempX, &sz);
       y = std::stof(tempY, &sz);
       platforms.emplace_back(new sf::Vector2f(x, y));

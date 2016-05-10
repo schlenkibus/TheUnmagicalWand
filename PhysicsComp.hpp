@@ -24,9 +24,7 @@ class PhysicsComponent
     ~PhysicsComponent();
     sf::Vector2f update(); //returns new Position to parent
     bool setCurrentLevelAndLoadData(std::string levelJson); //returns false if loading went wrong, deletes the old level before loading new one
-    bool checkOnPlatform(); //This is a temp function which does more than the name suggests: it reads the physic-obj and checks if the player is about to land on them -> bad performance
-    void jumpLogic();
-    void moveLogic();
+    bool checkOnPlatform(); //This is a function which reads the physic-obj and checks if the player is about to land on them returns true if he is false if not
   private:
     JsonParser* levelLoader;
     JsonParser* settingsLoader;
@@ -34,8 +32,10 @@ class PhysicsComponent
     sf::Vector2f position, size;
     sf::Vector2f acc;
     float jumpY;
-    bool canJump, inAir, jumpFrame;
-    sf::Clock jumpTimer, jumpTreshold;
+    bool inAir;
     //Settings-related stuff
     float gravity, maxYspeed, maxXspeed, negAcc, posAcc, jumpHeight;
+
+    void jumpLogic();
+    void moveLogic();
 };
