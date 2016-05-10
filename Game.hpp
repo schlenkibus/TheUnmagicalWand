@@ -5,6 +5,7 @@
 #include <iostream>
 #include "Player.hpp"
 #include "testLevel.hpp"
+
 class Game
 {
 public:
@@ -21,6 +22,19 @@ public:
 
   void setGameStateToStart();
   GameState getGameState();
+
+  void onFirePickup()
+  {
+
+  };
+  void onStonePickup()
+  {
+
+  };
+  void onWebPickup()
+  {
+
+  };
 private:
   std::vector<Level> levels;
   Player player;
