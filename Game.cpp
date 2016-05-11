@@ -20,14 +20,10 @@ void Game::addLevel(Level& level)
 
 void Game::update(sf::RenderWindow &window)
 {
-  switch(currentGameState)
-  {
-    case start:
-
-    break;
-  }
   if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
     currentGameState = returnToMenu;
+
+  player.update();
 }
 
 void Game::render(sf::RenderWindow& window)

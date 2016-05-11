@@ -11,8 +11,13 @@ class Player
         playerTexture.loadFromFile("art/player/normal1.png");
         playerSprite.setPosition(100, 100);
         playerSprite.setTexture(playerTexture);
+        playerSprite.setOrigin(playerSprite.getLocalBounds().width / 2, 0);
     };
     void draw(sf::RenderWindow& window);
+    void update()
+    {
+        playerSprite.setPosition(phys.update());
+    };
   private:
     sf::Texture playerTexture;
     sf::Sprite playerSprite;

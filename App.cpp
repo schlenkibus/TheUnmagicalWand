@@ -5,7 +5,8 @@ App::App()
   parser = new JsonParser("test.json");
   window = new sf::RenderWindow(sf::VideoMode(1000, 750), "The Unmagical Wand", sf::Style::Close);
   state = splash;
-  canUpdate = true;
+  ups  = sf::seconds(1.f / 60.f);
+  accumulator = sf::Time::Zero;
 }
 
 App::~App()
@@ -33,16 +34,6 @@ void App::mainLoop()
 
 void App::update()
 {
-  //Limits the game-update calls to 30 per second
-  if(canUpdate == false && updateClock.getElapsedTime().asSeconds() >= 0.03333333333f)
-  {
-    std::cout << "Update - Tick: " << updateClock.getElapsedTime().asSeconds() << std::endl;
-    canUpdate = true;
-    updateClock.restart();
-  }
-  else
-    canUpdate = false;
-
   switch(state)
   {
     case splash:
@@ -62,16 +53,18 @@ void App::update()
       return;
     break;
     case inGame:
-
-      if(canUpdate)
+      while(accumulator > ups)
+      {
+        accumulator -= ups;
         game.update(*window);
-
+      }
       if(game.getGameState() == Game::returnToMenu)
       {
         state = menu;
         game.setGameStateToStart();
       }
       game.render(*window);
+      accumulator += clock.restart();
       return;
     break;
     case endScreen:

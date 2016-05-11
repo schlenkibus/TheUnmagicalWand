@@ -18,8 +18,9 @@ private:
   JsonParser * parser;
   enum appState {splash, menu, inGame, endScreen, controls};
   appState state;
-  sf::Clock updateClock;
-  bool canUpdate;
+  sf::Clock clock;
+  sf::Time accumulator;
+  sf::Time ups;
 public:
   App();
   ~App();
