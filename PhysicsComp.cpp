@@ -14,7 +14,6 @@ PhysicsComponent::PhysicsComponent(sf::Vector2f pos, sf::Vector2f s)
     acc.x = 0;
     acc.y = 0;
     inAir = true;
-    gravity = 0.98f;
 
     setCurrentLevelAndLoadData("testLevel.json");
 }
