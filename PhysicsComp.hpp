@@ -7,13 +7,6 @@
 #include <list>
 #include "JsonParser.hpp"
 
-#define _gravity 1.5f
-#define _maxYspeed 4.3f
-#define _maxXspeed 2.1f
-#define _negAcc 0.5f
-#define _posAcc 1.25f
-#define _jumpHeight 22
-
 typedef std::shared_ptr<sf::Vector2f> t_PlatformVec;
 typedef std::list<t_PlatformVec> t_VecList;
 
@@ -38,4 +31,6 @@ class PhysicsComponent
 
     void jumpLogic();
     void moveLogic();
+
+    float tempUps;
 };

@@ -1,5 +1,12 @@
 #include "PhysicsComp.hpp"
 
+#define _gravity 9.81f
+#define _maxYspeed 10
+#define _maxXspeed 7.5f
+#define _negAcc 0.5f
+#define _posAcc 1.25f
+#define _jumpHeight 60
+
 PhysicsComponent::PhysicsComponent(sf::Vector2f pos, sf::Vector2f s)
 {
     size = s;
