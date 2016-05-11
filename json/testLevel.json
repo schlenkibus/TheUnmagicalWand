@@ -1,4 +1,7 @@
 platform: pos(200/550)
 platform: pos(400/500)
 platform: pos(600/400)
-platform: pos(600/300)
+platform: pos(500/300)
+platform: pos(300/200)
+platform: pos(150/100)
+platform: pos(150/300)

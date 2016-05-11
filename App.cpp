@@ -5,7 +5,7 @@ App::App()
   parser = new JsonParser("test.json");
   window = new sf::RenderWindow(sf::VideoMode(1000, 750), "The Unmagical Wand", sf::Style::Close);
   state = splash;
-  //window->setFramerateLimit(60);
+  canUpdate = true;
 }
 
 App::~App()
@@ -26,13 +26,22 @@ void App::mainLoop()
       }
     }
     window->clear();
-    update();
+    update(); // renders too
     window->display();
   }
 }
 
 void App::update()
 {
+  //Limits the game-update calls to 30 per second
+  if(canUpdate == false && updateClock.getElapsedTime().asSeconds() >= 1/30)
+  {
+    canUpdate = true;
+    updateClock.restart();
+  }
+  else
+    canUpdate = false;
+
   switch(state)
   {
     case splash:
@@ -52,7 +61,10 @@ void App::update()
       return;
     break;
     case inGame:
-      game.update(*window);
+
+      if(canUpdate)
+        game.update(*window);
+
       if(game.getGameState() == Game::returnToMenu)
       {
         state = menu;
