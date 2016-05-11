@@ -15,6 +15,8 @@ PhysicsComponent::PhysicsComponent(sf::Vector2f pos, sf::Vector2f s)
     acc.y = 0;
     inAir = true;
 
+    faceRight = true;
+
     setCurrentLevelAndLoadData("testLevel.json");
 }
 
@@ -29,6 +31,12 @@ sf::Vector2f PhysicsComponent::update()
   moveLogic();
   position.x = position.x + acc.x;
   position.y = position.y + acc.y;
+
+  if(acc.x > 0)
+    faceRight = true;
+  else if(acc.x < 0)
+    faceRight = false;
+
   return position;
 }
 
@@ -163,4 +171,9 @@ bool PhysicsComponent::checkOnPlatform() //Expects 173 width of platform
     }
   }
   return false;
+}
+
+bool PhysicsComponent::facesRight()
+{
+  return faceRight;
 }

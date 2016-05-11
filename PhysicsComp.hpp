@@ -18,6 +18,7 @@ class PhysicsComponent
     sf::Vector2f update(); //returns new Position to parent
     bool setCurrentLevelAndLoadData(std::string levelJson); //returns false if loading went wrong, deletes the old level before loading new one
     bool checkOnPlatform(); //This is a function which reads the physic-obj and checks if the player is about to land on them returns true if he is false if not
+    bool facesRight();
   private:
     JsonParser* levelLoader;
     JsonParser* settingsLoader;
@@ -28,6 +29,8 @@ class PhysicsComponent
     bool inAir;
     //Settings-related stuff
     float gravity, maxYspeed, maxXspeed, negAcc, posAcc, jumpHeight;
+
+    bool faceRight;
 
     void jumpLogic();
     void moveLogic();

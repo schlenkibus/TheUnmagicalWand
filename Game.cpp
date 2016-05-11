@@ -18,12 +18,12 @@ void Game::addLevel(Level& level)
   Game::levels.emplace_back(level);
 }
 
-void Game::update(sf::RenderWindow &window)
+void Game::update(sf::RenderWindow &window, sf::Time delta)
 {
   if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
     currentGameState = returnToMenu;
 
-  player.update();
+  player.update(delta);
 }
 
 void Game::render(sf::RenderWindow& window)

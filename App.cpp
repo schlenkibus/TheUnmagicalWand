@@ -56,7 +56,7 @@ void App::update()
       while(accumulator > ups)
       {
         accumulator -= ups;
-        game.update(*window);
+        game.update(*window, ups);
       }
       if(game.getGameState() == Game::returnToMenu)
       {

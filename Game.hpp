@@ -13,7 +13,7 @@ public:
   Game();
   ~Game();
   void render(sf::RenderWindow& window);
-  void update(sf::RenderWindow& window);
+  void update(sf::RenderWindow& window, sf::Time delta);
   void addLevel(Level& level);
 
   enum GameState {start, inLevel, levelLoad, dead,

@@ -2,5 +2,5 @@
 
 void Player::draw(sf::RenderWindow& window)
 {
-  window.draw(playerSprite);
+  window.draw(playerSprite.getSprite());
 }
