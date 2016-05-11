@@ -36,6 +36,7 @@ void App::update()
   //Limits the game-update calls to 30 per second
   if(canUpdate == false && updateClock.getElapsedTime().asSeconds() >= 1/30)
   {
+    std::cout << "Update - Tick: " << updateClock.getElapsedTime().asSeconds() << std::endl;
     canUpdate = true;
     updateClock.restart();
   }
