@@ -5,6 +5,7 @@
 #include <iostream>
 #include "Player.hpp"
 #include "testLevel.hpp"
+#include "Hud.hpp"
 
 class Game
 {
@@ -25,18 +26,19 @@ public:
 
   void onFirePickup()
   {
-
+    hud.addFireCount();
   };
   void onStonePickup()
   {
-
+    hud.addStoneCount();
   };
   void onWebPickup()
   {
-
+    hud.addWebCount();
   };
 private:
   std::vector<Level> levels;
   Player player;
   testLevel lvl;
+  Hud hud;
 };

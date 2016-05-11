@@ -54,7 +54,10 @@ void App::update()
     case inGame:
       game.update(*window);
       if(game.getGameState() == Game::returnToMenu)
+      {
         state = menu;
+        game.setGameStateToStart();
+      }
       game.render(*window);
       return;
     break;

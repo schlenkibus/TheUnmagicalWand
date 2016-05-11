@@ -34,6 +34,7 @@ void Game::render(sf::RenderWindow& window)
 {
   lvl.draw(window);
   player.draw(window);
+  hud.draw(window);
 }
 
 Game::GameState Game::getGameState()
