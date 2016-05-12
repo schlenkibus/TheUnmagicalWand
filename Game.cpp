@@ -24,6 +24,7 @@ void Game::update(sf::RenderWindow &window, sf::Time delta)
   if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
     currentGameState = returnToMenu;
   player.update(delta);
+  lvl->update(delta);
 }
 
 void Game::render(sf::RenderWindow& window)

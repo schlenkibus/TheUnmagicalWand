@@ -25,8 +25,6 @@ public:
     fireTex.loadFromFile("art/hud/fire.png");
     webTex.loadFromFile("art/hud/web.png");
     emptyTex.loadFromFile("art/hud/empty.png");
-
-    std::cout << "sizeof stoneTex: " << sizeof(stoneTex) << std::endl;
     //Setup of all the icons
     stoneCount.setFont(font); fireCount.setFont(font);  webCount.setFont(font);
     stonePickups.setTexture(stoneTex); firePickups.setTexture(fireTex); webPickups.setTexture(webTex);

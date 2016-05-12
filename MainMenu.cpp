@@ -16,9 +16,6 @@ MainMenu::MainMenu()
   controlsButton.setTexture(texContr);
   exitButton.setTexture(texExit);
 
-  std::cout << buttonParser.searchForTerm("startButton") << std::endl;
-  std::cout << buttonParser.getLineWithTerm("startButton") << std::endl;
-
   background.setPosition(0, 0);
   startButton.setPosition(400, 300);
   controlsButton.setPosition(400, 450);

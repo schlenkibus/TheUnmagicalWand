@@ -8,17 +8,23 @@
 #include <iostream>
 #include "JsonParser.hpp"
 #include "Pickup.hpp"
+#include "Enemy.hpp"
 
 typedef std::shared_ptr<Platform> t_Platforms;
-typedef std::list<t_Platforms> t_List;
+typedef std::list<t_Platforms> t_PlatformList;
+
+typedef std::shared_ptr<Enemy> t_Enemys;
+typedef std::list<t_Enemys> t_EnemyList;
 
 class Level
 {
 public:
   Level(std::string levelName);
   void draw(sf::RenderWindow &window);
+  void update(sf::Time deltaTime);
 private:
-  t_List platforms;
+  t_PlatformList platforms;
+  t_EnemyList enemys;
   JsonParser* levelData;
   sf::Sprite background;
   TextureManager texMan;

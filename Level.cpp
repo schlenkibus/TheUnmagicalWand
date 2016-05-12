@@ -2,9 +2,11 @@
 
 Level::Level(std::string levelName)
 {
+  enemys.emplace_back(new Book(sf::Vector2f(100, 100)));
+
   levelData = new JsonParser("texture"+levelName);
 
-  std::cout << getTexturedata() << std::endl;
+  getTexturedata();
 
   delete levelData;
 
@@ -40,7 +42,6 @@ Level::Level(std::string levelName)
             tempY = tempString.substr(tempTempY, i-tempTempY);
           }
         }
-        std::cout << tempX << "/" << tempY << std::endl;
         x = std::stof(tempX, &sz);
         y = std::stof(tempY, &sz);
         platforms.emplace_back(new Platform(sf::Vector2f(x, y), platformTex));
@@ -65,6 +66,18 @@ void Level::draw(sf::RenderWindow &window)
   for(auto u: platforms)
   {
     u->draw(window);
+  }
+  for(auto u: enemys)
+  {
+    u->draw(window);
+  }
+}
+
+void Level::update(sf::Time deltaTime)
+{
+  for(auto u: enemys)
+  {
+    u->update(deltaTime);
   }
 }
 
