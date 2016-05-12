@@ -3,6 +3,13 @@
 Level::Level(std::string levelName)
 {
   enemys.emplace_back(new Book(sf::Vector2f(100, 100)));
+  enemys.emplace_back(new Book(sf::Vector2f(100, 100)));
+  enemys.emplace_back(new Book(sf::Vector2f(100, 100)));
+  enemys.emplace_back(new Book(sf::Vector2f(100, 100)));
+  enemys.emplace_back(new Book(sf::Vector2f(100, 100)));
+  enemys.emplace_back(new Book(sf::Vector2f(100, 100)));
+  enemys.emplace_back(new Book(sf::Vector2f(100, 100)));
+  enemys.emplace_back(new Book(sf::Vector2f(100, 100)));
 
   levelData = new JsonParser("texture"+levelName);
 
