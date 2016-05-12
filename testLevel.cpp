@@ -5,6 +5,7 @@
 testLevel::testLevel()
 {
   //Loading level and texturedata
+
   levelData = new JsonParser("testLevel.json");
   texMan.getTexture("art/backgrounds/prison.png");
   texMan.getTexture("art/platforms/platform2x1_2.png");

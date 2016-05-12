@@ -23,4 +23,5 @@ private:
   sf::Sprite background;
   TextureManager texMan;
   sf::Texture backgroundTex, platformTex;
+  std::string getTexturedata();
 };

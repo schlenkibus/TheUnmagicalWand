@@ -39,6 +39,6 @@ public:
 private:
   std::vector<Level> levels;
   Player player;
-  testLevel lvl;
+  Level * lvl;
   Hud hud;
 };

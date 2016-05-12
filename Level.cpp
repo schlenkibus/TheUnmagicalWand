@@ -2,29 +2,13 @@
 
 Level::Level(std::string levelName)
 {
+  levelData = new JsonParser("texture"+levelName);
+
+  std::cout << getTexturedata() << std::endl;
+
+  delete levelData;
+
   levelData = new JsonParser(levelName);
-  //Lets try something funky!
-  {
-    std::string tempString;
-    for(unsigned int i = 0; i <= levelData->getLines()-1; i++)
-    {
-      tempString = levelData->getLineWithMatch(i, "platformtexture:");
-      if(!tempString.empty())
-      {
-        std::cout << tempString << std::endl;
-        tempString = tempString.substr(tempString.find("<") + 1);
-        std::cout << tempString << std::endl;
-        for(int i = 0; i <= tempString.size(); i++)
-        {
-          if(tempString[i] == '>')
-          {
-            tempString = tempString.substr(0, i);
-          }
-        }
-        std::cout << tempString << std::endl;
-      }
-    }
-  }
 
   texMan.getTexture("art/backgrounds/prison.png");
   texMan.getTexture("art/platforms/platform2x1_2.png");
@@ -56,10 +40,11 @@ Level::Level(std::string levelName)
             tempY = tempString.substr(tempTempY, i-tempTempY);
           }
         }
+        std::cout << tempX << "/" << tempY << std::endl;
+        x = std::stof(tempX, &sz);
+        y = std::stof(tempY, &sz);
+        platforms.emplace_back(new Platform(sf::Vector2f(x, y), platformTex));
       }
-      x = std::stof(tempX, &sz);
-      y = std::stof(tempY, &sz);
-      platforms.emplace_back(new Platform(sf::Vector2f(x, y), platformTex));
     }
   }
 
@@ -81,4 +66,28 @@ void Level::draw(sf::RenderWindow &window)
   {
     u->draw(window);
   }
+}
+
+std::string Level::getTexturedata()
+{
+
+  std::string tempString;
+  std::string temp2string;
+  tempString = levelData->getLineWithTerm("platformtexture:");
+  if(!tempString.empty())
+  {
+    tempString = tempString.substr(tempString.find("<") + 1);
+    for(char i: tempString)
+    {
+      if(i == '>')
+      {
+        break;
+      }
+      if(i != '>')
+      {
+        temp2string += i;
+      }
+    }
+  }
+  return temp2string;
 }
