@@ -2,14 +2,6 @@
 
 Level::Level(std::string levelName)
 {
-  enemys.emplace_back(new Book(sf::Vector2f(100, 100)));
-  enemys.emplace_back(new Book(sf::Vector2f(100, 100)));
-  enemys.emplace_back(new Book(sf::Vector2f(100, 100)));
-  enemys.emplace_back(new Book(sf::Vector2f(100, 100)));
-  enemys.emplace_back(new Book(sf::Vector2f(100, 100)));
-  enemys.emplace_back(new Book(sf::Vector2f(100, 100)));
-  enemys.emplace_back(new Book(sf::Vector2f(100, 100)));
-  enemys.emplace_back(new Book(sf::Vector2f(100, 100)));
 
   levelData = new JsonParser("texture"+levelName);
 
@@ -34,7 +26,11 @@ Level::Level(std::string levelName)
     for(unsigned int i = 0; i <= levelData->getLines()-1; i++)
     {
       tempString = levelData->getLineWithMatch(i, "platform");
-      if(!tempString.empty())
+      if(tempString == "error")
+      {
+
+      }
+      else
       {
         tempString = tempString.substr(tempString.find("pos(") + 4);
         for(int i = 0; i <= tempString.size(); i++)
@@ -55,7 +51,42 @@ Level::Level(std::string levelName)
       }
     }
   }
+  if(levelData->searchForTerm("book") == true)
+  {
+    std::string tempString, tempX, tempY;
+    std::string::size_type sz;
+    int tempTempY;
+    float x, y;
 
+    for(unsigned int i = 0; i <= levelData->getLines()-1; i++)
+    {
+      tempString = levelData->getLineWithMatch(i,"book");
+      std::cout << "line: " <<  i << " " << tempString.size() << std::endl;
+      if(tempString == "error")
+      {
+
+      }
+      else
+      {
+        tempString = tempString.substr(tempString.find("pos(") + 4);
+        for(int i = 0; i <= tempString.size(); i++)
+        {
+          if(tempString[i] == '/')
+          {
+            tempX = tempString.substr(0, i);
+            tempTempY = i + 1;
+          }
+          if(tempString[i] == ')')
+          {
+            tempY = tempString.substr(tempTempY, i-tempTempY);
+          }
+        }
+        x = std::stof(tempX, &sz);
+        y = std::stof(tempY, &sz);
+        enemys.emplace_back(new Book(sf::Vector2f(x, y)));
+      }
+    }
+  }
   for(auto u: platforms)
   {
     u->sprite.setTexture(platformTex);

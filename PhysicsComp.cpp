@@ -17,7 +17,7 @@ PhysicsComponent::PhysicsComponent(sf::Vector2f pos, sf::Vector2f s)
 
     faceRight = true;
 
-    setCurrentLevelAndLoadData("testLevel.json");
+    setCurrentLevelAndLoadData("level1.json");
 }
 
 PhysicsComponent::~PhysicsComponent()

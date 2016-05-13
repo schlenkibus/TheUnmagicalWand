@@ -67,10 +67,19 @@ public:
 
     waypoint = generateNewWaypoint();
     linearInterpolation();
-    std::cout << "Waypoint: " << waypoint.x << " " << waypoint.y << std::endl;
   };
   void update(sf::Time deltaTime)
   {
+    if(dir.x > 0 && faceRight == false)
+    {
+      faceRight = true;
+      sprite.setAnimation(idleR);
+    }
+    if(faceRight == true && dir.x < 0)
+    {
+      faceRight = false;
+      sprite.setAnimation(idleL);
+    }
     sprite.update(deltaTime);
     pathfinding();
   };
@@ -96,7 +105,6 @@ public:
   void linearInterpolation()
   {
     dir = normalize(waypoint, sprite.getPosition());
-    std::cout << "Dir: " << dir.x << " " << dir.y << std::endl;
   }
   float RandomFloat(float min, float max)
   {

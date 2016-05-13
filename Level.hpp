@@ -30,4 +30,5 @@ private:
   TextureManager texMan;
   sf::Texture backgroundTex, platformTex;
   std::string getTexturedata();
+  void loadEnemys();
 };

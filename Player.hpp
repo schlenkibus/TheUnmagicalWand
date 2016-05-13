@@ -12,6 +12,7 @@ class Player
     {
         playerSprite.setPosition(sf::Vector2f(100, 100));
         playerSprite.setOrigin(sf::Vector2f(playerSprite.getSprite().getLocalBounds().width / 2, 0.0f));
+        phys.setCurrentLevelAndLoadData("level1.json");
     };
     void draw(sf::RenderWindow& window);
     void update(sf::Time deltaTime)
