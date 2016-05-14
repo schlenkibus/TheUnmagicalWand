@@ -1,35 +1,47 @@
 #include "Game.hpp"
 
 #include <iostream>
-#include <vector>
 
 Game::Game()
 {
   setGameStateToStart();
-  lvl = new Level("level1.json");
+  levels.emplace_back(new Level("library.json"));
+  levels.emplace_back(new Level("kitchen.json"));
+  levels.emplace_back(new Level("cellar.json"));
+  for(auto u: levels)
+  {
+    u->setActive(true);
+    player.setNewLevel(u->getLevelName());
+    return;
+  }
+
 }
 
 Game::~Game()
 {
-  delete lvl;
-}
-
-void Game::addLevel(Level& level)
-{
-  Game::levels.emplace_back(level);
 }
 
 void Game::update(sf::RenderWindow &window, sf::Time delta)
 {
   if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
     currentGameState = returnToMenu;
+
   player.update(delta);
-  lvl->update(delta);
+  for(auto u: levels)
+  {
+    if(u->getActive())
+      u->update(delta);
+  }
+  checkLevelChange();
 }
 
 void Game::render(sf::RenderWindow& window)
 {
-  lvl->draw(window);
+  for(auto u: levels)
+  {
+    if(u->getActive())
+      u->draw(window);
+  }
   player.draw(window);
   hud.draw(window);
 }

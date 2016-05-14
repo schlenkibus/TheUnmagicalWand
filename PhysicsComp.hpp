@@ -19,6 +19,11 @@ class PhysicsComponent
     bool setCurrentLevelAndLoadData(std::string levelJson); //returns false if loading went wrong, deletes the old level before loading new one
     bool checkOnPlatform(); //This is a function which reads the physic-obj and checks if the player is about to land on them returns true if he is false if not
     bool facesRight();
+    void setPosition(sf::Vector2f pos)
+    {
+      position.x = pos.x;
+      position.y = pos.y;
+    }
   private:
     JsonParser* levelLoader;
     JsonParser* settingsLoader;

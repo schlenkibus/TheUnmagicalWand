@@ -20,6 +20,19 @@ class Player
       playerSprite.setPosition(phys.update());
       playerSprite.update(deltaTime);
     };
+    sf::Vector2f getPosition()
+    {
+      return playerSprite.getSprite().getPosition();
+    };
+    void setPosition(sf::Vector2f pos)
+    {
+      playerSprite.setPosition(pos);
+      phys.setPosition(pos);
+    };
+    void setNewLevel(std::string name)
+    {
+      phys.setCurrentLevelAndLoadData(name);
+    };
   private:
     PlayerAnimation playerSprite;
     sf::Texture playerTexture;

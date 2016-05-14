@@ -3,6 +3,10 @@
 Level::Level(std::string levelName)
 {
 
+  active = false;
+
+  _levelName = levelName;
+
   levelData = new JsonParser("texture"+levelName);
 
   getTexturedata();
@@ -96,6 +100,10 @@ Level::Level(std::string levelName)
   background.setPosition(0, 0);
 
   delete levelData;
+
+  //Other stuff
+  finishable = false;
+
 }
 
 void Level::draw(sf::RenderWindow &window)
@@ -141,4 +149,9 @@ std::string Level::getTexturedata()
     }
   }
   return temp2string;
+}
+
+bool Level::canFinish()
+{
+  return finishable;
 }

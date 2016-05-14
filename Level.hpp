@@ -22,6 +22,19 @@ public:
   Level(std::string levelName);
   void draw(sf::RenderWindow &window);
   void update(sf::Time deltaTime);
+  bool canFinish();
+  std::string getLevelName()
+  {
+    return _levelName;
+  }
+  bool getActive()
+  {
+    return active;
+  }
+  void setActive(bool a)
+  {
+    active = a;
+  }
 private:
   t_PlatformList platforms;
   t_EnemyList enemys;
@@ -31,4 +44,7 @@ private:
   sf::Texture backgroundTex, platformTex;
   std::string getTexturedata();
   void loadEnemys();
+  bool finishable;
+  std::string _levelName;
+  bool active;
 };

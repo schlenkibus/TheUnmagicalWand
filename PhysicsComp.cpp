@@ -123,6 +123,8 @@ bool PhysicsComponent::setCurrentLevelAndLoadData(std::string levelJson)
 {
   levelLoader = new JsonParser(levelJson);
 
+  platforms.clear();
+
   if(levelLoader->searchForTerm("platform") == true)
   {
     std::string tempString, tempX, tempY;
