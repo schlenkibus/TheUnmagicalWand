@@ -91,6 +91,10 @@ Level::Level(std::string levelName)
       }
     }
   }
+  if(levelName == "library.json") //ca 200 x 200 big
+  {
+    levelBoss = new BookBoss(sf::Vector2f(800, 466));
+  }
   for(auto u: platforms)
   {
     u->sprite.setTexture(platformTex);
@@ -117,6 +121,7 @@ void Level::draw(sf::RenderWindow &window)
   {
     u->draw(window);
   }
+  levelBoss->draw(window);
 }
 
 void Level::update(sf::Time deltaTime)
@@ -125,6 +130,7 @@ void Level::update(sf::Time deltaTime)
   {
     u->update(deltaTime);
   }
+  levelBoss->update(deltaTime);
 }
 
 std::string Level::getTexturedata()

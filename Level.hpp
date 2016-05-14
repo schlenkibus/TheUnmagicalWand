@@ -9,6 +9,7 @@
 #include "JsonParser.hpp"
 #include "Pickup.hpp"
 #include "Enemy.hpp"
+#include "Boss.hpp"
 
 typedef std::shared_ptr<Platform> t_Platforms;
 typedef std::list<t_Platforms> t_PlatformList;
@@ -20,6 +21,10 @@ class Level
 {
 public:
   Level(std::string levelName);
+  ~Level()
+  {
+    delete levelBoss;
+  }
   void draw(sf::RenderWindow &window);
   void update(sf::Time deltaTime);
   bool canFinish();
@@ -47,4 +52,5 @@ private:
   bool finishable;
   std::string _levelName;
   bool active;
+  Boss * levelBoss;
 };
