@@ -2,7 +2,7 @@
 
 Level::Level(std::string levelName)
 {
-
+  finishable = false;
   active = false;
 
   _levelName = levelName;
@@ -15,7 +15,6 @@ Level::Level(std::string levelName)
 
   levelData = new JsonParser(levelName);
 
-  texMan.getTexture("art/backgrounds/prison.png");
   texMan.getTexture("art/platforms/platform2x1_2.png");
 
   platformTex = texMan.getTexture("art/platforms/platform2x1_2.png");
@@ -32,7 +31,6 @@ Level::Level(std::string levelName)
       tempString = levelData->getLineWithMatch(i, "platform");
       if(tempString == "error")
       {
-
       }
       else
       {
@@ -55,7 +53,7 @@ Level::Level(std::string levelName)
       }
     }
   }
-  if(levelData->searchForTerm("book") == true)
+  if(levelData->searchForTerm("enemy") == true)
   {
     std::string tempString, tempX, tempY;
     std::string::size_type sz;
@@ -68,7 +66,6 @@ Level::Level(std::string levelName)
       std::cout << "line: " <<  i << " " << tempString.size() << std::endl;
       if(tempString == "error")
       {
-
       }
       else
       {
@@ -87,27 +84,42 @@ Level::Level(std::string levelName)
         }
         x = std::stof(tempX, &sz);
         y = std::stof(tempY, &sz);
-        enemys.emplace_back(new Book(sf::Vector2f(x, y)));
+
+        if(_levelName == "library.json")
+          enemys.emplace_back(new Book(sf::Vector2f(x, y)));
+        else if(_levelName == "kitchen.json")
+          enemys.emplace_back(new Book(sf::Vector2f(x, y)));
+        else if(_levelName == "cellar.json")
+          enemys.emplace_back(new Book(sf::Vector2f(x, y)));
       }
     }
   }
-  if(levelName == "library.json") //ca 200 x 200 big
+  if(levelName == "library.json")
   {
-    levelBoss = new BookBoss(sf::Vector2f(800, 466));
+    levelBoss = new BookBoss(sf::Vector2f(800, 470));
+    texMan.getTexture("art/backgrounds/library.png");
+    background.setTexture(texMan.getRef("art/backgrounds/library.png"));
+  }
+  if(levelName == "kitchen.json")
+  {
+    levelBoss = new KnifeBoss(sf::Vector2f(800, 453));
+    texMan.getTexture("art/backgrounds/kitchen.png");
+    background.setTexture(texMan.getRef("art/backgrounds/kitchen.png"));
+  }
+  if(levelName == "cellar.json")
+  {
+    levelBoss = new CageBoss(sf::Vector2f(800, 427));
+    texMan.getTexture("art/backgrounds/prison.png");
+    background.setTexture(texMan.getRef("art/backgrounds/prison.png"));
   }
   for(auto u: platforms)
   {
     u->sprite.setTexture(platformTex);
   }
 
-  background.setTexture(texMan.getRef("art/backgrounds/prison.png"));
   background.setPosition(0, 0);
 
   delete levelData;
-
-  //Other stuff
-  finishable = false;
-
 }
 
 void Level::draw(sf::RenderWindow &window)

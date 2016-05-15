@@ -40,6 +40,10 @@ public:
   {
     active = a;
   }
+  void setFinishable()
+  {
+    finishable = true;
+  }
 private:
   t_PlatformList platforms;
   t_EnemyList enemys;

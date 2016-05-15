@@ -45,12 +45,15 @@ public:
     {
       for(auto u: levels)
       {
+        std::cout << "levels: " << u << std::endl;
         if(u->getActive() == true && u->canFinish() == true)
         {
+          levelFinished++;
           player.setPosition(sf::Vector2f(75, 500));
           u->setActive(false);
+          std::cout << "old level: " << u << std::endl;
         }
-        else
+        else if(u->getActive() == true && u->canFinish() == false)
         {
           return;
         }
@@ -59,6 +62,7 @@ public:
       {
         if(u->canFinish() == false && u->getActive() == false)
         {
+          std::cout << "New Level: " <<  u << std::endl;
           player.setNewLevel(u->getLevelName()); //Hope that works
           u->setActive(true);
           return;
@@ -71,7 +75,9 @@ public:
     }
   }
 private:
+  sf::Clock cheatClock;
   t_LevelList levels;
   Player player;
   Hud hud;
+  short levelsFinished; //When 3 then skip to endscreen
 };

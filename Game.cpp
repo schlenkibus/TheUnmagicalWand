@@ -4,6 +4,7 @@
 
 Game::Game()
 {
+  levelFinished = 0;
   setGameStateToStart();
   levels.emplace_back(new Level("library.json"));
   levels.emplace_back(new Level("kitchen.json"));
@@ -14,23 +15,42 @@ Game::Game()
     player.setNewLevel(u->getLevelName());
     return;
   }
-
 }
 
 Game::~Game()
 {
 }
 
+bool able = false;
+
 void Game::update(sf::RenderWindow &window, sf::Time delta)
 {
   if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
     currentGameState = returnToMenu;
 
+  if(cheatClock.getElapsedTime().asSeconds() >= 1.5f)
+  {
+    able = false;
+    cheatClock.restart();
+  }
+
+  if(levelsFinished == 3)
+  {
+    currentGameState = gameFinished;
+  }
+
   player.update(delta);
   for(auto u: levels)
   {
     if(u->getActive())
+    {
+      if(sf::Keyboard::isKeyPressed(sf::Keyboard::L) && able == false)
+      {
+        able = true;
+        u->setFinishable();
+      }
       u->update(delta);
+    }
   }
   checkLevelChange();
 }
