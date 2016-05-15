@@ -7,12 +7,14 @@ App::App()
   state = splash;
   ups  = sf::seconds(1.f / 60.f);
   accumulator = sf::Time::Zero;
+  game = new Game();
 }
 
 App::~App()
 {
   delete window;
   delete parser;
+  delete game;
 }
 
 void App::mainLoop()
@@ -56,18 +58,28 @@ void App::update()
       while(accumulator > ups)
       {
         accumulator -= ups;
-        game.update(*window, ups);
+        game->update(*window, ups);
       }
-      if(game.getGameState() == Game::returnToMenu)
+      if(game->getGameState() == Game::returnToMenu)
       {
         state = menu;
-        game.setGameStateToStart();
+        game->setGameStateToStart();
       }
-      game.render(*window);
+      else if(game->getGameState() == Game::gameFinished)
+        state = endScreen;
+      game->render(*window);
       accumulator += clock.restart();
       return;
     break;
     case endScreen:
+        end.update();
+        end.draw(*window);
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+        {
+          state = menu;
+          delete game;
+          game = new Game();
+        }
       return;
     break;
     case controls:

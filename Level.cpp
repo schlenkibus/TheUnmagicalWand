@@ -62,7 +62,7 @@ Level::Level(std::string levelName)
 
     for(unsigned int i = 0; i <= levelData->getLines()-1; i++)
     {
-      tempString = levelData->getLineWithMatch(i,"book");
+      tempString = levelData->getLineWithMatch(i,"enemy");
       std::cout << "line: " <<  i << " " << tempString.size() << std::endl;
       if(tempString == "error")
       {
@@ -85,12 +85,16 @@ Level::Level(std::string levelName)
         x = std::stof(tempX, &sz);
         y = std::stof(tempY, &sz);
 
-        if(_levelName == "library.json")
+        if(levelName == "library.json")
           enemys.emplace_back(new Book(sf::Vector2f(x, y)));
-        else if(_levelName == "kitchen.json")
+        else if(levelName == "kitchen.json")
           enemys.emplace_back(new Book(sf::Vector2f(x, y)));
-        else if(_levelName == "cellar.json")
+        else if(levelName == "cellar.json")
           enemys.emplace_back(new Book(sf::Vector2f(x, y)));
+        else
+          std::cout << "FUCK!" << std::endl;
+
+        std::cout << enemys.size() << std::endl;
       }
     }
   }
@@ -129,11 +133,11 @@ void Level::draw(sf::RenderWindow &window)
   {
     u->draw(window);
   }
+  levelBoss->draw(window);
   for(auto u: enemys)
   {
     u->draw(window);
   }
-  levelBoss->draw(window);
 }
 
 void Level::update(sf::Time deltaTime)

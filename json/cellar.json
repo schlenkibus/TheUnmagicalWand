@@ -1,2 +1,3 @@
 platform: pos(200/550)
 platform: pos(400/500)
+enemy: pos(500/300)

@@ -48,7 +48,8 @@ public:
         std::cout << "levels: " << u << std::endl;
         if(u->getActive() == true && u->canFinish() == true)
         {
-          levelFinished++;
+          levelsFinished++;
+          std::cout << levelsFinished << std::endl;
           player.setPosition(sf::Vector2f(75, 500));
           u->setActive(false);
           std::cout << "old level: " << u << std::endl;

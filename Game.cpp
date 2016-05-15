@@ -4,7 +4,7 @@
 
 Game::Game()
 {
-  levelFinished = 0;
+  levelsFinished = 0;
   setGameStateToStart();
   levels.emplace_back(new Level("library.json"));
   levels.emplace_back(new Level("kitchen.json"));
