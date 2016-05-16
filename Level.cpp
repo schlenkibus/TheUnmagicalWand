@@ -93,6 +93,46 @@ Level::Level(std::string levelName)
       }
     }
   }
+  if(levelData->searchForTerm("pickup") == true)
+  {
+    std::string tempString, tempX, tempY;
+    std::string::size_type sz;
+    int tempTempY;
+    float x, y;
+
+    for(unsigned int i = 0; i <= levelData->getLines()-1; i++)
+    {
+      tempString = levelData->getLineWithMatch(i,"pickup");
+      if(tempString == "error")
+      {
+      }
+      else
+      {
+        tempString = tempString.substr(tempString.find("pos(") + 4);
+        for(int i = 0; i <= tempString.size(); i++)
+        {
+          if(tempString[i] == '/')
+          {
+            tempX = tempString.substr(0, i);
+            tempTempY = i + 1;
+          }
+          if(tempString[i] == ')')
+          {
+            tempY = tempString.substr(tempTempY, i-tempTempY);
+          }
+        }
+        x = std::stof(tempX, &sz);
+        y = std::stof(tempY, &sz);
+
+        if(levelName == "library.json")
+          pickups.emplace_back(new Pickup(sf::Vector2f(x, y), Pickup::fire));
+        else if(levelName == "kitchen.json")
+          pickups.emplace_back(new Pickup(sf::Vector2f(x, y), Pickup::web));
+        else if(levelName == "cellar.json")
+          pickups.emplace_back(new Pickup(sf::Vector2f(x, y), Pickup::stone));
+      }
+    }
+  }
   if(levelName == "library.json")
   {
     levelBoss = new BookBoss(sf::Vector2f(800, 470));
@@ -125,6 +165,10 @@ void Level::draw(sf::RenderWindow &window)
 {
   window.draw(background);
   for(auto u: platforms)
+  {
+    u->draw(window);
+  }
+  for(auto u: pickups)
   {
     u->draw(window);
   }

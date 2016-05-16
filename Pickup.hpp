@@ -2,15 +2,21 @@
 
 #include <SFML/Graphics.hpp>
 
-enum pickupType {fire, stone, web, health};
-
 class Pickup
 {
 public:
+  enum pickupType {fire, stone, web, health};
   Pickup(sf::Vector2f pos, pickupType t)
   {
     sprite.setPosition(pos);
-    type = t;
+    if(t == fire)
+      tex.loadFromFile("art/pickups/firePickup.png");
+    if(t == web)
+      tex.loadFromFile("art/pickups/webPickup.png");
+    if(t == stone)
+      tex.loadFromFile("art/pickups/stonePickup.png");
+
+    sprite.setTexture(tex);
   };
   void setTexture(sf::Texture& tex)
   {
@@ -30,5 +36,6 @@ public:
   };
 private:
   sf::Sprite sprite;
+  sf::Texture tex;
   pickupType type;
 };

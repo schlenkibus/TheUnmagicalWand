@@ -17,6 +17,9 @@ typedef std::list<t_Platforms> t_PlatformList;
 typedef std::shared_ptr<Enemy> t_Enemys;
 typedef std::list<t_Enemys> t_EnemyList;
 
+typedef std::shared_ptr<Pickup> t_Pickups;
+typedef std::list<t_Pickups> t_PickupList;
+
 class Level
 {
 public:
@@ -47,6 +50,7 @@ public:
 private:
   t_PlatformList platforms;
   t_EnemyList enemys;
+  t_PickupList pickups;
   JsonParser* levelData;
   sf::Sprite background;
   TextureManager texMan;
