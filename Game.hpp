@@ -45,14 +45,11 @@ public:
     {
       for(auto u: levels)
       {
-        std::cout << "levels: " << u << std::endl;
         if(u->getActive() == true && u->canFinish() == true)
         {
           levelsFinished++;
-          std::cout << levelsFinished << std::endl;
           player.setPosition(sf::Vector2f(75, 500));
           u->setActive(false);
-          std::cout << "old level: " << u << std::endl;
         }
         else if(u->getActive() == true && u->canFinish() == false)
         {
@@ -63,8 +60,7 @@ public:
       {
         if(u->canFinish() == false && u->getActive() == false)
         {
-          std::cout << "New Level: " <<  u << std::endl;
-          player.setNewLevel(u->getLevelName()); //Hope that works
+          player.setNewLevel(u->getLevelName());
           u->setActive(true);
           return;
         }

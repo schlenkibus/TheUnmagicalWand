@@ -52,3 +52,18 @@ private:
   sf::Vector2f waypoint;
   sf::Clock pathClock;
 };
+
+class Pot: public Enemy
+{
+public:
+  Pot(sf::Vector2f pos);
+  void update(sf::Time deltaTime);
+  void pathfinding();
+  sf::Vector2f generateNewWayPoint();
+  void linearInterpolation();
+  float RandomFloat(float min, float max);
+private:
+  float x, y, speed, precision;
+  sf::Vector2f dir, waypoint;
+  sf::Clock pathClock;
+};
