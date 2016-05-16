@@ -67,3 +67,18 @@ private:
   sf::Vector2f dir, waypoint;
   sf::Clock pathClock;
 };
+
+class Rat: public Enemy
+{
+public:
+  Rat(sf::Vector2f pos);
+  void update(sf::Time deltaTime);
+  void pathfinding();
+  sf::Vector2f generateNewWayPoint();
+  void linearInterpolation();
+  float RandomFloat(float min, float max);
+private:
+  float x, y, speed, precision;
+  sf::Vector2f dir, waypoint;
+  sf::Clock pathClock;
+};

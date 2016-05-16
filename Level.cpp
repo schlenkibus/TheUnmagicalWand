@@ -89,7 +89,7 @@ Level::Level(std::string levelName)
         else if(levelName == "kitchen.json")
           enemys.emplace_back(new Pot(sf::Vector2f(x, y)));
         else if(levelName == "cellar.json")
-          enemys.emplace_back(new Book(sf::Vector2f(x, y)));
+          enemys.emplace_back(new Rat(sf::Vector2f(x, y)));
       }
     }
   }
