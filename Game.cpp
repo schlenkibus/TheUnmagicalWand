@@ -20,6 +20,7 @@ Game::Game()
 
 Game::~Game()
 {
+  levels.clear();
 }
 
 bool able = false;
@@ -65,4 +66,38 @@ Game::GameState Game::getGameState()
 void Game::setGameStateToStart()
 {
   currentGameState = start;
+}
+
+void Game::checkLevelChange()
+{
+  if(player.getPosition().x >= 950)
+  {
+    for(auto u: levels)
+    {
+      if(u->getActive() == true && u->canFinish() == true)
+      {
+        levelsFinished++;
+        player.setPosition(sf::Vector2f(75, 500));
+        u->setActive(false);
+      }
+      else if(u->getActive() == true && u->canFinish() == false)
+      {
+        return;
+      }
+    }
+    for(auto u: levels)
+    {
+      if(u->canFinish() == false && u->getActive() == false)
+      {
+        player.setNewLevel(u->getLevelName());
+        u->setActive(true);
+        current = u.get();
+        return;
+      }
+    }
+  }
+  else
+  {
+    return;
+  }
 }
