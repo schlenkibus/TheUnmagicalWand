@@ -141,7 +141,7 @@ void Pot::pathfinding()
 
 sf::Vector2f Pot::generateNewWayPoint()
 {
-  return sf::Vector2f(RandomFloat(50, 900), RandomFloat(600, 600));
+  return sf::Vector2f(RandomFloat(100, 900), RandomFloat(600, 600));
 }
 
 void Pot::linearInterpolation()
@@ -218,7 +218,7 @@ void Rat::pathfinding()
 
 sf::Vector2f Rat::generateNewWayPoint()
 {
-  return sf::Vector2f(RandomFloat(50, 900), RandomFloat(600, 600));
+  return sf::Vector2f(RandomFloat(100, 900), RandomFloat(600, 600));
 }
 
 void Rat::linearInterpolation()

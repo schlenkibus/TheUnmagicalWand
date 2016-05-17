@@ -23,6 +23,10 @@ private:
   sf::Clock clock;
   sf::Time accumulator;
   sf::Time ups;
+  sf::Text fpsText;
+  sf::Font font;
+  float lastTime, currentTime, fps;
+  sf::Clock fpsClock;
 public:
   App();
   ~App();

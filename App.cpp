@@ -1,4 +1,5 @@
 #include "App.hpp"
+#include <stdio.h>
 
 App::App()
 {
@@ -8,6 +9,9 @@ App::App()
   ups  = sf::seconds(1.f / 60.f);
   accumulator = sf::Time::Zero;
   game = new Game();
+  font.loadFromFile("art/fonts/temp.ttf");
+  fpsText.setFont(font);
+  fpsText.setPosition(0, 0);
 }
 
 App::~App()
@@ -36,11 +40,16 @@ void App::mainLoop()
 
 void App::update()
 {
+  currentTime = fpsClock.restart().asSeconds();
+  fps = 1.f / (currentTime - lastTime);
+  lastTime = currentTime;
+  fpsText.setString(std::to_string(fps));
   switch(state)
   {
     case splash:
       splashScreen.update();
       splashScreen.render(*window);
+      window->draw(fpsText);
       if(splashScreen.getActive() == false)
         state = menu;
       return;
@@ -52,6 +61,7 @@ void App::update()
       if(mainMenu.getGameStart())
         state = inGame;
       mainMenu.render(*window);
+      window->draw(fpsText);
       return;
     break;
     case inGame:
@@ -68,12 +78,14 @@ void App::update()
       else if(game->getGameState() == Game::gameFinished)
         state = endScreen;
       game->render(*window);
+      window->draw(fpsText);
       accumulator += clock.restart();
       return;
     break;
     case endScreen:
         end.update();
         end.draw(*window);
+        window->draw(fpsText);
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
         {
           state = menu;
@@ -90,6 +102,7 @@ void App::update()
         state = menu;
       }
       menuHelp.render(*window);
+      window->draw(fpsText);
     default:
       return;
     break;
