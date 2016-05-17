@@ -13,6 +13,7 @@ Game::Game()
   {
     u->setActive(true);
     player.setNewLevel(u->getLevelName());
+    current = u.get();
     return;
   }
 }
@@ -40,28 +41,18 @@ void Game::update(sf::RenderWindow &window, sf::Time delta)
   }
 
   player.update(delta);
-  for(auto u: levels)
+  if(sf::Keyboard::isKeyPressed(sf::Keyboard::L) && able == false)
   {
-    if(u->getActive())
-    {
-      if(sf::Keyboard::isKeyPressed(sf::Keyboard::L) && able == false)
-      {
-        able = true;
-        u->setFinishable();
-      }
-      u->update(delta);
-    }
+    able = true;
+    current->setFinishable();
   }
+  current->update(delta);
   checkLevelChange();
 }
 
 void Game::render(sf::RenderWindow& window)
 {
-  for(auto u: levels)
-  {
-    if(u->getActive())
-      u->draw(window);
-  }
+  current->draw(window);
   player.draw(window);
   hud.draw(window);
 }

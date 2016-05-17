@@ -62,6 +62,7 @@ public:
         {
           player.setNewLevel(u->getLevelName());
           u->setActive(true);
+          current = u.get();
           return;
         }
       }
@@ -74,6 +75,7 @@ public:
 private:
   sf::Clock cheatClock;
   t_LevelList levels;
+  Level * current;
   Player player;
   Hud hud;
   short levelsFinished; //When 3 then skip to endscreen
