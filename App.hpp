@@ -10,6 +10,7 @@
 class App
 {
 private:
+  //Game and Menu Stuff
   sf::RenderWindow * window;
   sf::Event event;
   SplashScreen splashScreen;
@@ -17,9 +18,9 @@ private:
   MainMenu mainMenu;
   Endscreen end;
   Game * game; //Makes it easy to reset
-  JsonParser * parser;
   enum appState {splash, menu, inGame, endScreen, controls};
   appState state;
+  //FPS and Update stuff
   sf::Clock clock;
   sf::Time accumulator;
   sf::Time ups;

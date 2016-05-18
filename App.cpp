@@ -3,7 +3,6 @@
 
 App::App()
 {
-  parser = new JsonParser("test.json");
   window = new sf::RenderWindow(sf::VideoMode(1000, 750), "The Unmagical Wand", sf::Style::Close);
   state = splash;
   ups  = sf::seconds(1.f / 60.f);
@@ -17,7 +16,6 @@ App::App()
 App::~App()
 {
   delete window;
-  delete parser;
   delete game;
 }
 
@@ -33,7 +31,7 @@ void App::mainLoop()
       }
     }
     window->clear();
-    update(); // renders too
+    update();
     window->display();
   }
 }
