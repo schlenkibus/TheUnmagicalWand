@@ -55,7 +55,7 @@ public:
   void addStoneCount()
   {
     s_stoneCount++;
-
+    std::cout << "Added Stone Count: " << s_fireCount << std::endl;
     if(s_stoneCount == 1)
       stoneCount.setString("1/3");
     else if(s_stoneCount == 2)
@@ -66,7 +66,7 @@ public:
   void addFireCount()
   {
     s_fireCount++;
-
+    std::cout << "Added Fire Count: " << s_fireCount << std::endl;
     if(s_fireCount == 1)
       fireCount.setString("1/3");
     else if(s_fireCount == 2)
@@ -77,7 +77,7 @@ public:
   void addWebCount()
   {
     s_webCount++;
-
+    std::cout << "Added Web Count: " << s_fireCount << std::endl;
     if(s_webCount == 1)
       webCount.setString("1/3");
     else if(s_webCount == 2)

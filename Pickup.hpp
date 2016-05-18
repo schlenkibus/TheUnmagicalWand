@@ -8,6 +8,7 @@ public:
   enum pickupType {fire, stone, web, health};
   Pickup(sf::Vector2f pos, pickupType t)
   {
+    active = true;
     sprite.setPosition(pos);
     if(t == fire)
       tex.loadFromFile("art/pickups/firePickup.png");
@@ -15,6 +16,8 @@ public:
       tex.loadFromFile("art/pickups/webPickup.png");
     if(t == stone)
       tex.loadFromFile("art/pickups/stonePickup.png");
+
+    type = t;
 
     sprite.setTexture(tex);
   };
@@ -24,7 +27,8 @@ public:
   };
   void draw(sf::RenderWindow& window)
   {
-    window.draw(sprite);
+    if(active)
+      window.draw(sprite);
   };
   sf::FloatRect getRect()
   {
@@ -32,10 +36,19 @@ public:
   };
   void onPickup()
   {
-
-  };
+    active = false;
+  }
+  bool getActive()
+  {
+    return active;
+  }
+  pickupType getType()
+  {
+    return type;
+  }
 private:
   sf::Sprite sprite;
   sf::Texture tex;
   pickupType type;
+  bool active;
 };

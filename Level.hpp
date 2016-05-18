@@ -47,6 +47,10 @@ public:
   {
     finishable = true;
   }
+  t_PickupList getPickups()
+  {
+    return pickups;
+  }
 private:
   t_PlatformList platforms;
   t_EnemyList enemys;

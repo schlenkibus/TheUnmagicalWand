@@ -42,6 +42,20 @@ void Game::update(sf::RenderWindow &window, sf::Time delta)
   }
 
   player.update(delta);
+  for(auto u: current->getPickups())
+  {
+    if(u->getRect().contains(player.getPosition()) && u->getActive())
+    {
+      u->onPickup();
+
+      if(u->getType() == Pickup::web)
+        onWebPickup();
+      else if(u->getType() == Pickup::fire)
+        onFirePickup();
+      else if(u->getType() == Pickup::stone)
+        onStonePickup();
+    }
+  }
   if(sf::Keyboard::isKeyPressed(sf::Keyboard::L) && able == false)
   {
     able = true;
