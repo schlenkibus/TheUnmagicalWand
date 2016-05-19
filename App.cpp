@@ -39,7 +39,7 @@ void App::mainLoop()
 void App::update()
 {
   currentTime = fpsClock.restart().asSeconds();
-  fps = 1.f / (currentTime - lastTime);
+  fps = 1.f / (currentTime);
   lastTime = currentTime;
   fpsText.setString(std::to_string(fps));
   switch(state)
