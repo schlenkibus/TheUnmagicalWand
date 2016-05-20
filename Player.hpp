@@ -8,6 +8,7 @@
 class Player
 {
   public:
+    enum powerState {none, fire, web, stone};
     Player() : phys(sf::Vector2f(100, 100), sf::Vector2f(33, 100))
     {
         playerSprite.setPosition(sf::Vector2f(100, 100));
@@ -34,6 +35,7 @@ class Player
       phys.setCurrentLevelAndLoadData(name);
     };
   private:
+    powerState currentPower;
     PlayerAnimation playerSprite;
     sf::Texture playerTexture;
     PhysicsComponent phys;
