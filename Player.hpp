@@ -19,6 +19,14 @@ class Player
     void update(sf::Time deltaTime)
     {
       playerSprite.setPosition(phys.update());
+      if(phys.facesRight())
+      {
+        playerSprite.facesRight(true);
+      }
+      else
+      {
+        playerSprite.facesRight(false);
+      }
       playerSprite.update(deltaTime);
     };
     sf::Vector2f getPosition()
