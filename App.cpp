@@ -11,6 +11,7 @@ App::App()
   font.loadFromFile("art/fonts/temp.ttf");
   fpsText.setFont(font);
   fpsText.setPosition(0, 0);
+  fpsText.setString("v 0.1");
 }
 
 App::~App()
@@ -38,10 +39,10 @@ void App::mainLoop()
 
 void App::update()
 {
-  currentTime = fpsClock.restart().asSeconds();
+  /*currentTime = fpsClock.restart().asSeconds();
   fps = 1.f / (currentTime);
   lastTime = currentTime;
-  fpsText.setString(std::to_string(fps));
+  fpsText.setString(std::to_string(fps));*/
   switch(state)
   {
     case splash:
