@@ -4,3 +4,9 @@ void Player::draw(sf::RenderWindow& window)
 {
   window.draw(playerSprite.getSprite());
 }
+
+void Player::shoot()
+{
+  able = false;
+  actionTimer.restart();
+}

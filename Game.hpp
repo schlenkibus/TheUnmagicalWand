@@ -45,5 +45,5 @@ private:
   Level * current;
   Player player;
   Hud hud;
-  short levelsFinished; //When 3 then skip to endscreen
+  short levelsFinished;
 };
