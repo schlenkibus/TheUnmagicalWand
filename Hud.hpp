@@ -85,7 +85,27 @@ public:
     else if(s_webCount == 3)
       webCount.setString("3/3");
   };
-
+  bool getWebAble()
+  {
+    if(s_webCount >= 3)
+      return true;
+    else
+      return false;
+  }
+  bool getFireAble()
+  {
+    if(s_fireCount >= 3)
+      return true;
+    else
+      return false;
+  }
+  bool getStoneAble()
+  {
+    if(s_stoneCount >= 3)
+      return true;
+    else
+      return false;
+  }
 private:
   sf::Sprite stonePickups, firePickups, webPickups;
   sf::Texture stoneTex, fireTex, webTex, emptyTex;

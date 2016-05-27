@@ -42,7 +42,28 @@ class Player
             shoot();
           }
         }
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Num1) && fireAble)
+        {
+          currentPower = fire;
+        }
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Num2) && webAble)
+        {
+          currentPower = web;
+        }
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Num3) && stoneAble)
+        {
+          currentPower = stone;
+        }
       }
+      else
+      {
+        if(actionTimer.getElapsedTime().asSeconds() >= 1)
+        {
+          inAction = false;
+        }
+      }
+
+      
       playerSprite.setPosition(phys.update());
       if(phys.facesRight())
       {

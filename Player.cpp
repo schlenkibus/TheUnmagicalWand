@@ -7,6 +7,7 @@ void Player::draw(sf::RenderWindow& window)
 
 void Player::shoot()
 {
-  able = false;
+  inAction = true;
   actionTimer.restart();
+  std::cout << "Pew!\n";
 }

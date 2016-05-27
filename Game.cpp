@@ -49,11 +49,23 @@ void Game::update(sf::RenderWindow &window, sf::Time delta)
       u->onPickup();
 
       if(u->getType() == Pickup::web)
+      {
         onWebPickup();
+        if(hud.getWebAble())
+          player.enableWebs();
+      }
       else if(u->getType() == Pickup::fire)
+      {
         onFirePickup();
+        if(hud.getFireAble())
+          player.enableFire();
+      }
       else if(u->getType() == Pickup::stone)
+      {
         onStonePickup();
+        if(hud.getStoneAble())
+          player.enableStone();
+      }
     }
   }
   if(sf::Keyboard::isKeyPressed(sf::Keyboard::L) && able == false)
