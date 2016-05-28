@@ -16,7 +16,8 @@ class Player
     void setPosition(sf::Vector2f pos);
     void setNewLevel(std::string name);
     void shoot();
-
+    void hitFire();
+    void hitStone();
     void enableWebs()
     {
       webAble = true;
@@ -29,9 +30,21 @@ class Player
     {
       stoneAble = true;
     }
+    bool dealingDamage()
+    {
+      return dealsDamage;
+    }
+    void dealDamage(int d);
+    void destroy();
+    sf::FloatRect getRect()
+    {
+      return playerSprite.getSprite().getGlobalBounds();
+    }
   private:
     bool inAction;
+    bool dealsDamage;
     bool webAble, fireAble, stoneAble;
+    int health;
     powerState currentPower;
     PlayerAnimation playerSprite;
     sf::Texture playerTexture;
@@ -39,5 +52,5 @@ class Player
     AnimatedSprite webBullet;
     Animation webAnim;
     sf::Texture webTexture;
-    sf::Clock actionTimer;
+    sf::Clock actionTimer, damageTimer, animTimer;
 };

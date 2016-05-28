@@ -51,6 +51,10 @@ public:
   {
     return pickups;
   }
+  t_EnemyList getEnemys()
+  {
+    return enemys;
+  }
 private:
   t_PlatformList platforms;
   t_EnemyList enemys;

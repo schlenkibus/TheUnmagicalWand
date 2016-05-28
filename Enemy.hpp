@@ -13,6 +13,8 @@ public:
   Enemy()
   {
     faceRight = true;
+    damage = 10;
+    active = true;
   };
   void draw(sf::RenderWindow& window)
   {
@@ -30,8 +32,21 @@ public:
     temp.y = p1.y - p2.y;
     return temp;
   };
+  sf::FloatRect getRect()
+  {
+    return sprite.getGlobalBounds();
+  }
+  int getDamage()
+  {
+    return damage;
+  }
+  bool getActive()
+  {
+    return active;
+  }
 protected:
-  bool faceRight;
+  bool faceRight, active;
+  int damage;
   Animation idleL, idleR;
   AnimatedSprite sprite;
   sf::Texture spriteSheetL, spriteSheetR;

@@ -2,11 +2,13 @@
 
 Player::Player() : phys(sf::Vector2f(100, 100), sf::Vector2f(33, 100))
 {
+  health = 100;
   inAction = false;
   playerSprite.setPosition(sf::Vector2f(100, 100));
   playerSprite.setOrigin(sf::Vector2f(playerSprite.getSprite().getLocalBounds().width / 2, 0.0f));
   phys.setCurrentLevelAndLoadData("level1.json");
 
+  dealsDamage = false;
 
   webTexture.loadFromFile("art/pickups/projectile.png");
 
@@ -29,6 +31,33 @@ void Player::draw(sf::RenderWindow& window)
 
 void Player::update(sf::Time deltaTime)
 {
+  if(health <= 0)
+  {
+    destroy();
+    return;
+  }
+
+  if(damageTimer.getElapsedTime().asSeconds() <= 0.5)
+  {
+    if(animTimer.getElapsedTime().asSeconds() <= 0.05)
+    {
+      playerSprite.getSprite().setColor(sf::Color::Red);
+    }
+    else if(animTimer.getElapsedTime().asSeconds() > 0.05 && animTimer.getElapsedTime().asSeconds() <= 0.1)
+    {
+      playerSprite.getSprite().setColor(sf::Color::White);
+    }
+    else
+    {
+      playerSprite.getSprite().setColor(sf::Color::White);
+      animTimer.restart();
+    }
+  }
+  else
+  {
+    playerSprite.getSprite().setColor(sf::Color::White);
+  }
+
   if(inAction == false)
   {
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::LControl))
@@ -36,6 +65,14 @@ void Player::update(sf::Time deltaTime)
       if(currentPower == web)
       {
         shoot();
+      }
+      else if(currentPower == fire)
+      {
+        hitFire();
+      }
+      else if(currentPower == stone)
+      {
+        hitStone();
       }
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Num1) && fireAble)
@@ -56,6 +93,7 @@ void Player::update(sf::Time deltaTime)
     if(actionTimer.getElapsedTime().asSeconds() >= 1)
     {
       inAction = false;
+      dealsDamage = false;
     }
   }
 
@@ -69,6 +107,7 @@ void Player::update(sf::Time deltaTime)
     playerSprite.facesRight(false);
   }
   playerSprite.update(deltaTime);
+  std::cout << health << std::endl;
 }
 
 void Player::shoot()
@@ -92,4 +131,34 @@ void Player::setPosition(sf::Vector2f pos)
 void Player::setNewLevel(std::string name)
 {
   phys.setCurrentLevelAndLoadData(name);
+}
+
+void Player::hitFire()
+{
+  inAction = true;
+  dealsDamage = true;
+  actionTimer.restart();
+  std::cout << "Flame!!\n";
+}
+
+void Player::hitStone()
+{
+  inAction = true;
+  dealsDamage = false;
+  actionTimer.restart();
+  std::cout << "BAM!\n";
+}
+
+void Player::destroy()
+{
+  std::cout << "Player is offialy dead!\n";
+}
+
+void Player::dealDamage(int d)
+{
+  if(damageTimer.getElapsedTime().asSeconds() > 0.5)
+  {
+    health-=d;
+    damageTimer.restart();
+  }
 }

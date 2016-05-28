@@ -42,6 +42,13 @@ void Game::update(sf::RenderWindow &window, sf::Time delta)
   }
 
   player.update(delta);
+  for(auto u: current->getEnemys())
+  {
+    if(player.getRect().intersects(u->getRect()) && u->getActive())
+    {
+      player.dealDamage(u->getDamage());
+    }
+  }
   for(auto u: current->getPickups())
   {
     if(u->getRect().contains(player.getPosition()) && u->getActive())
