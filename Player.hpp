@@ -41,7 +41,7 @@ class Player
       return playerSprite.getSprite().getGlobalBounds();
     }
   private:
-    bool inAction;
+    bool inAction, bulletActive;
     bool dealsDamage;
     bool webAble, fireAble, stoneAble;
     int health;
@@ -53,4 +53,7 @@ class Player
     Animation webAnim;
     sf::Texture webTexture;
     sf::Clock actionTimer, damageTimer, animTimer;
+    sf::Vector2f webVector;
+    //Private Methods
+    void flicker();
 };

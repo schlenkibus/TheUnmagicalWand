@@ -22,11 +22,14 @@ Player::Player() : phys(sf::Vector2f(100, 100), sf::Vector2f(33, 100))
   webBullet.setAnimation(webAnim);
 
   webAble = false; stoneAble = false; fireAble = false;
+  bulletActive = false;
+  webVector.x = 0; webVector.y = 5;
 }
 
 void Player::draw(sf::RenderWindow& window)
 {
   window.draw(playerSprite.getSprite());
+  window.draw(webBullet);
 }
 
 void Player::update(sf::Time deltaTime)
@@ -37,26 +40,8 @@ void Player::update(sf::Time deltaTime)
     return;
   }
 
-  if(damageTimer.getElapsedTime().asSeconds() <= 0.5)
-  {
-    if(animTimer.getElapsedTime().asSeconds() <= 0.05)
-    {
-      playerSprite.getSprite().setColor(sf::Color::Red);
-    }
-    else if(animTimer.getElapsedTime().asSeconds() > 0.05 && animTimer.getElapsedTime().asSeconds() <= 0.1)
-    {
-      playerSprite.getSprite().setColor(sf::Color::White);
-    }
-    else
-    {
-      playerSprite.getSprite().setColor(sf::Color::White);
-      animTimer.restart();
-    }
-  }
-  else
-  {
-    playerSprite.getSprite().setColor(sf::Color::White);
-  }
+  //Flicker Red When Hit
+  flicker();
 
   if(inAction == false)
   {
@@ -93,6 +78,7 @@ void Player::update(sf::Time deltaTime)
     if(actionTimer.getElapsedTime().asSeconds() >= 1)
     {
       inAction = false;
+      bulletActive = false;
       dealsDamage = false;
     }
   }
@@ -106,31 +92,29 @@ void Player::update(sf::Time deltaTime)
   {
     playerSprite.facesRight(false);
   }
+  webVector.y += 1.5f;
+  webBullet.move(webVector.x * deltaTime.asSeconds(), webVector.y * deltaTime.asSeconds());
+  webBullet.update(deltaTime);
   playerSprite.update(deltaTime);
-  std::cout << health << std::endl;
 }
 
 void Player::shoot()
 {
   inAction = true;
+  bulletActive = true;
   actionTimer.restart();
   std::cout << "Pew!\n";
-}
-
-sf::Vector2f Player::getPosition()
-{
-  return playerSprite.getSprite().getPosition();
-}
-
-void Player::setPosition(sf::Vector2f pos)
-{
-  playerSprite.setPosition(pos);
-  phys.setPosition(pos);
-}
-
-void Player::setNewLevel(std::string name)
-{
-  phys.setCurrentLevelAndLoadData(name);
+  webBullet.setPosition(getPosition());
+  if(phys.facesRight())
+  {
+    webVector.x = 300;
+    webVector.y = 0;
+  }
+  else
+  {
+    webVector.x = -300;
+    webVector.y = 0;
+  }
 }
 
 void Player::hitFire()
@@ -151,7 +135,8 @@ void Player::hitStone()
 
 void Player::destroy()
 {
-  std::cout << "Player is offialy dead!\n";
+  std::cout << "Player is officaly dead!\n";
+
 }
 
 void Player::dealDamage(int d)
@@ -162,3 +147,43 @@ void Player::dealDamage(int d)
     damageTimer.restart();
   }
 }
+
+sf::Vector2f Player::getPosition()
+{
+  return playerSprite.getSprite().getPosition();
+}
+
+void Player::setPosition(sf::Vector2f pos)
+{
+  playerSprite.setPosition(pos);
+  phys.setPosition(pos);
+}
+
+void Player::setNewLevel(std::string name)
+{
+  phys.setCurrentLevelAndLoadData(name);
+}
+
+void Player::flicker()
+{
+  if(damageTimer.getElapsedTime().asSeconds() <= 0.5)
+  {
+    if(animTimer.getElapsedTime().asSeconds() <= 0.05)
+    {
+      playerSprite.getSprite().setColor(sf::Color::Red);
+    }
+    else if(animTimer.getElapsedTime().asSeconds() > 0.05 && animTimer.getElapsedTime().asSeconds() <= 0.1)
+    {
+      playerSprite.getSprite().setColor(sf::Color::White);
+    }
+    else
+    {
+      playerSprite.getSprite().setColor(sf::Color::White);
+      animTimer.restart();
+    }
+  }
+  else
+  {
+    playerSprite.getSprite().setColor(sf::Color::White);
+  }
+};
