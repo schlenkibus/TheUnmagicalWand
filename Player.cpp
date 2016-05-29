@@ -29,7 +29,8 @@ Player::Player() : phys(sf::Vector2f(100, 100), sf::Vector2f(33, 100))
 void Player::draw(sf::RenderWindow& window)
 {
   window.draw(playerSprite.getSprite());
-  window.draw(webBullet);
+  if(bulletActive == true)
+    window.draw(webBullet);
 }
 
 void Player::update(sf::Time deltaTime)
@@ -92,9 +93,12 @@ void Player::update(sf::Time deltaTime)
   {
     playerSprite.facesRight(false);
   }
-  webVector.y += 1.5f;
-  webBullet.move(webVector.x * deltaTime.asSeconds(), webVector.y * deltaTime.asSeconds());
-  webBullet.update(deltaTime);
+  if(bulletActive == true)
+  {
+    webVector.y += 1.5f;
+    webBullet.move(webVector.x * deltaTime.asSeconds(), webVector.y * deltaTime.asSeconds());
+    webBullet.update(deltaTime);
+  }
   playerSprite.update(deltaTime);
 }
 
