@@ -64,14 +64,22 @@ void Player::update(sf::Time deltaTime)
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Num1) && fireAble)
     {
       currentPower = fire;
+      //playerSprite.setFire();
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Num2) && webAble)
     {
       currentPower = web;
+      playerSprite.setWeb();
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Num3) && stoneAble)
     {
       currentPower = stone;
+      //playerSprite.setStone();
+    }
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Num4))
+    {
+      currentPower = none;
+      playerSprite.setNone();
     }
   }
   else

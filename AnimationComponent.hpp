@@ -73,19 +73,23 @@ public:
 
   void setFire()
   {
-
+    powerState = fire;
+    onDirChange();
   }
   void setWeb()
   {
-
+    powerState = web;
+    onDirChange();
   }
   void setStone()
   {
-
+    powerState = stone;
+    onDirChange();
   }
   void setNone()
   {
-
+    powerState = none;
+    onDirChange();
   }
 private:
   direction dir;
@@ -112,6 +116,7 @@ private:
         case fire:
         break;
         case web:
+          sprite.setAnimation(webIdleL);
         break;
         case stone:
         break;
@@ -126,6 +131,7 @@ private:
         case fire:
         break;
         case web:
+          sprite.setAnimation(webIdleR);
         break;
         case stone:
         break;
@@ -152,6 +158,24 @@ private:
     idleL.addFrame(sf::IntRect(183, 27, 33, 100));
     idleL.addFrame(sf::IntRect(218, 27, 33, 100));
     idleL.addFrame(sf::IntRect(254, 27, 33, 100));
+
+    webIdleR.addFrame(sf::IntRect(2, 10, 62, 99));
+    webIdleR.addFrame(sf::IntRect(68, 10, 62, 99));
+    webIdleR.addFrame(sf::IntRect(133, 10, 62, 99));
+    webIdleR.addFrame(sf::IntRect(205, 10, 62, 99));
+    webIdleR.addFrame(sf::IntRect(280, 10, 62, 99));
+    webIdleR.addFrame(sf::IntRect(355, 10, 62, 99));
+    webIdleR.addFrame(sf::IntRect(426, 10, 62, 99));
+    webIdleR.addFrame(sf::IntRect(500, 10, 62, 99));
+
+    webIdleL.addFrame(sf::IntRect(3, 10, 62, 99));
+    webIdleL.addFrame(sf::IntRect(69, 10, 62, 99));
+    webIdleL.addFrame(sf::IntRect(137, 10, 62, 99));
+    webIdleL.addFrame(sf::IntRect(208, 10, 62, 99));
+    webIdleL.addFrame(sf::IntRect(283, 10, 62, 99));
+    webIdleL.addFrame(sf::IntRect(356, 10, 62, 99));
+    webIdleL.addFrame(sf::IntRect(427, 10, 62, 99));
+    webIdleL.addFrame(sf::IntRect(501, 10, 62, 99));
   }
 
   void loadFire()
