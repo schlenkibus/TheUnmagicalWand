@@ -18,6 +18,8 @@ public:
   };
   void draw(sf::RenderWindow& window)
   {
+    if(!active)
+      return;
     window.draw(sprite);
   };
   virtual void update(sf::Time deltaTime){ };
@@ -43,6 +45,10 @@ public:
   bool getActive()
   {
     return active;
+  }
+  void kill()
+  {
+    active = false;;
   }
 protected:
   bool faceRight, active;

@@ -31,6 +31,8 @@ Book::Book(sf::Vector2f pos)
 
 void Book::update(sf::Time deltaTime)
 {
+  if(!active)
+    return;
   if(dir.x > 0 && faceRight == false)
   {
     faceRight = true;
@@ -111,6 +113,8 @@ Pot::Pot(sf::Vector2f pos)
 
 void Pot::update(sf::Time deltaTime)
 {
+  if(!active)
+    return;
   if(dir.x > 0 && faceRight == false)
   {
     faceRight = true;
@@ -188,6 +192,8 @@ Rat::Rat(sf::Vector2f pos)
 
 void Rat::update(sf::Time deltaTime)
 {
+  if(!active)
+    return;
   if(dir.x > 0 && faceRight == false)
   {
     faceRight = true;

@@ -40,6 +40,14 @@ class Player
     {
       return playerSprite.getSprite().getGlobalBounds();
     }
+    sf::FloatRect getProjectile()
+    {
+      return webBullet.getGlobalBounds();
+    }
+    bool isBulletActive()
+    {
+      return bulletActive;
+    }
   private:
     bool inAction, bulletActive;
     bool dealsDamage;

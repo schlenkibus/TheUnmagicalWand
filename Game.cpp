@@ -48,6 +48,10 @@ void Game::update(sf::RenderWindow &window, sf::Time delta)
     {
       player.dealDamage(u->getDamage());
     }
+    if(player.getProjectile().intersects(u->getRect()) && u->getActive() && player.isBulletActive())
+    {
+      u->kill();
+    }
   }
   for(auto u: current->getPickups())
   {
