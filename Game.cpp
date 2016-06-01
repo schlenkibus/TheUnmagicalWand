@@ -46,7 +46,7 @@ void Game::update(sf::RenderWindow &window, sf::Time delta)
   {
     if(player.getRect().intersects(u->getRect()) && u->getActive())
     {
-      if(player.dealsDamage())
+      if(player.dealingDamage())
       {
         u->kill();
       }

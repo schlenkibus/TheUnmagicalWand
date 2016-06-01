@@ -64,17 +64,20 @@ void Player::update(sf::Time deltaTime)
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Num1) && fireAble)
     {
       currentPower = fire;
-      playerSprite.setFire();
+      //playerSprite.setFire();
+      std::cout << "NOW FIRE!\n";
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Num2) && webAble)
     {
       currentPower = web;
       playerSprite.setWeb();
+      std::cout << "NOW WEB!\n";
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Num3) && stoneAble)
     {
       currentPower = stone;
-      playerSprite.setStone();
+      //playerSprite.setStone();
+      std::cout << "NOW STONE!\n";
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Num4))
     {
@@ -140,7 +143,7 @@ void Player::hitFire()
 void Player::hitStone()
 {
   inAction = true;
-  dealsDamage = false;
+  dealsDamage = true;
   actionTimer.restart();
   std::cout << "BAM!\n";
 }
