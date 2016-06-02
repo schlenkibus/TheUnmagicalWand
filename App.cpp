@@ -11,7 +11,7 @@ App::App()
   font.loadFromFile("art/fonts/temp.ttf");
   fpsText.setFont(font);
   fpsText.setPosition(0, 0);
-  fpsText.setString("v 0.1");
+  fpsText.setString("v 0.2");
 }
 
 App::~App()
