@@ -1,0 +1,38 @@
+{
+	"Meta": {
+		"LevelNumber": 0,
+		"Setting": "Library" / "Kitchen" / "Cellar" -> Background, Platformtextures	
+	},
+	"Objects": [
+		{
+			"Type": "Platform",
+			"Position": {
+				"x": 0,
+				"y": 0
+			},
+			"Dimension": {
+				"w": 150,
+				"h": 60
+			}		
+		},
+		{
+			"Type": "Platform",
+			"Rect": "x,y,w,h"		
+		},
+		{
+			"Type": "FirePickup",
+			"Rect": "x,y,w,h"		
+		}
+	],
+	"Mobs": [
+		{
+			"Type": "Book",
+			"Position": "x, y",
+			"Difficulty": "hard"
+		},
+		{
+			"Type": "BookBoss",
+			"Position": "x, y"
+		}
+	]
+}

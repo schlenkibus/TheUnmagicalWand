@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="TUM" targetName="TUM" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Default" GENERATION_DIR="$PROJECT_DIR$/../build" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3c6738d1-2739-4784-b824-38d14908be3a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/TheUnmagicalWand.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Framework/Components/RenderComponent.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Framework/Components/RenderComponent.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Framework/GameObject.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Framework/GameObject.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnimatedSprite.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnimatedSprite.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Animation.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Animation.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnimationComponent.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Boss.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Endscreen.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Enemy.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Enemy.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hud.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JsonParser.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JsonParser.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Level.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Level.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LineInterp.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LineInterp.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainMenu.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainMenu.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MenuHelp.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MenuHelp.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PhysicsComp.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PhysicsComp.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pickup.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pickup.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Player.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Player.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SplashScreen.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SplashScreen.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextureManager.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextureManager.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform.hpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/src/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/src/main.cpp" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/../build/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Default" />
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tools/TextureManager.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="12" column="54" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tools/TextureManager.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="48">
+              <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Levels/Endscreen.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Framework/GameObjectBuilder.cpp">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Framework/GameObject.cpp">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Framework/GameObjectBuilder.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="7" column="8" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+              <folding>
+                <element signature="e#14#37#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Framework/PhysicsWorld.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-8">
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Framework/Components/PhysicsComponent.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Framework/Components/PhysicsDefinition.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-8" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Framework/Components/PhysicsDefinition.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="936">
+              <caret line="39" column="1" lean-forward="true" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
+              <folding>
+                <element signature="e#14#38#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>new</find>
+      <find>for(auto u</find>
+      <find>PhysicsComponent</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>for(auto&amp; u</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/LevelParsing/json.h" />
+        <option value="$PROJECT_DIR$/src/Framework/GameObjectBuilder.cpp" />
+        <option value="$PROJECT_DIR$/src/Framework/Components/PhysicsComp.cpp" />
+        <option value="$PROJECT_DIR$/src/Framework/Components/PhysicsComp.hpp" />
+        <option value="$PROJECT_DIR$/src/Framework/Components/PhysicsDefinition.cpp" />
+        <option value="$PROJECT_DIR$/src/Framework/GameObject.h" />
+        <option value="$PROJECT_DIR$/src/Framework/GameObject.cpp" />
+        <option value="$PROJECT_DIR$/src/Framework/PhysicsWorld.cpp" />
+        <option value="$PROJECT_DIR$/src/Framework/GameObjectBuilder.h" />
+        <option value="$PROJECT_DIR$/src/Framework/Builders/PlatformBuilder.h" />
+        <option value="$PROJECT_DIR$/src/Framework/Builders/PlatformBuilder.cpp" />
+        <option value="$PROJECT_DIR$/src/tools/EnumTools.cpp" />
+        <option value="$PROJECT_DIR$/src/LevelParsing/LevelParser.cpp" />
+        <option value="$PROJECT_DIR$/src/tools/TextureManager.cpp" />
+        <option value="$PROJECT_DIR$/src/tools/TextureManager.hpp" />
+        <option value="$PROJECT_DIR$/src/Framework/Builders/GameObjectDirector.cpp" />
+        <option value="$PROJECT_DIR$/src/Levels/Level.cpp" />
+        <option value="$PROJECT_DIR$/src/Game.cpp" />
+        <option value="$PROJECT_DIR$/src/Framework/Components/AnimationComponent.hpp" />
+        <option value="$PROJECT_DIR$/src/Framework/PhysicsWorld.h" />
+        <option value="$PROJECT_DIR$/src/Framework/Components/RenderComponent.h" />
+        <option value="$PROJECT_DIR$/src/Framework/Components/PhysicsComponent.cpp" />
+        <option value="$PROJECT_DIR$/src/Framework/Components/RenderComponent.cpp" />
+        <option value="$PROJECT_DIR$/src/Framework/Components/PhysicsComponent.hpp" />
+        <option value="$PROJECT_DIR$/src/Framework/Transform.cpp" />
+        <option value="$PROJECT_DIR$/src/Framework/Transform.h" />
+        <option value="$PROJECT_DIR$/src/tools/EnumTools.h" />
+        <option value="$PROJECT_DIR$/src/Main.cpp" />
+        <option value="$PROJECT_DIR$/src/App.hpp" />
+        <option value="$PROJECT_DIR$/src/Game.hpp" />
+        <option value="$PROJECT_DIR$/src/Levels/Level.hpp" />
+        <option value="$PROJECT_DIR$/src/tools/StringTools.h" />
+        <option value="$PROJECT_DIR$/src/tools/StringTools.cpp" />
+        <option value="$PROJECT_DIR$/src/LevelParsing/LevelParser.h" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/src/Framework/Builders/GameObjectDirector.h" />
+        <option value="$PROJECT_DIR$/src/App.cpp" />
+        <option value="$PROJECT_DIR$/src/Menu.h" />
+        <option value="$PROJECT_DIR$/src/GameState/GameState.h" />
+        <option value="$PROJECT_DIR$/src/GameState/GameState.cpp" />
+        <option value="$PROJECT_DIR$/src/GameState/Menu.h" />
+        <option value="$PROJECT_DIR$/src/GameState/Menu.cpp" />
+        <option value="$PROJECT_DIR$/src/Framework/UI/UIElement.h" />
+        <option value="$PROJECT_DIR$/src/Framework/UI/KetaUI.h" />
+        <option value="$PROJECT_DIR$/src/Framework/UI/KetaUIContainer.h" />
+        <option value="$PROJECT_DIR$/src/Framework/UI/KetaUIContainer.cpp" />
+        <option value="$PROJECT_DIR$/src/Framework/Builders/UI/KetaUIContainerBuilder.h" />
+        <option value="$PROJECT_DIR$/.clang-format" />
+        <option value="$PROJECT_DIR$/src/Framework/Builders/UI/KetaUIContainerBuilder.cpp" />
+        <option value="$PROJECT_DIR$/src/Framework/Components/PhysicsDefinition.h" />
+      </list>
+    </option>
+  </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="67" />
+    <option name="y" value="25" />
+    <option name="width" value="3773" />
+    <option name="height" value="2135" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="TUM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TheUnmagicalWand" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TUM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TheUnmagicalWand" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TUM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TheUnmagicalWand" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Framework" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TUM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TheUnmagicalWand" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Framework" type="462c0819:PsiDirectoryNode" />
+              <item name="Components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TUM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TheUnmagicalWand" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="GameState" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TUM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TheUnmagicalWand" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="LevelParsing" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TUM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TheUnmagicalWand" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Levels" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TUM" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TheUnmagicalWand" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tools" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.advertisement.text.overridden" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.externalTools" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Framework" />
+      <recent name="$PROJECT_DIR$/src/Graphics" />
+      <recent name="$PROJECT_DIR$/src/tools" />
+      <recent name="$PROJECT_DIR$/src/Levels" />
+      <recent name="$PROJECT_DIR$/src/GameObjects" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="TUM" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="TUM" TARGET_NAME="TUM" CONFIG_NAME="Default" RUN_TARGET_PROJECT_NAME="TUM" RUN_TARGET_NAME="TUM">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="CMake.Install" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3c6738d1-2739-4784-b824-38d14908be3a" name="Default Changelist" comment="" />
+      <created>1564776914880</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1564776914880</updated>
+      <workItem from="1564776916017" duration="17142000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="17142000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="67" y="25" width="3773" height="2135" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24979876" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Messages" weight="0.32951146" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="CMake" visible="true" weight="0.32951146" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32951146" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32951146" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/GameObjects/Player.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/Components/RenderComponent.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/Transform.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LevelParsing/JsonParser.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/PhysicsWorld.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/Transform.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/Components/AnimationComponent.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2107">
+          <caret line="183" column="2" selection-start-line="183" selection-start-column="2" selection-end-line="183" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/Components/PhysicsComponent.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+          <folding>
+            <element signature="e#14#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/Components/RenderComponent.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/Builders/PlatformBuilder.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Levels/Level.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Levels/Level.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/GameObject.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="936">
+          <caret line="39" column="2" lean-forward="true" selection-start-line="39" selection-start-column="2" selection-end-line="39" selection-end-column="2" />
+          <folding>
+            <element signature="e#13#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tools/StringTools.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="e#14#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LevelParsing/LevelParser.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LevelParsing/LevelParser.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="34" column="11" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
+          <folding>
+            <element signature="e#14#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/Builders/GameObjectDirector.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+          <folding>
+            <element signature="e#14#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Menu.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Menu.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameState/GameState.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameState/Menu.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/UI/UIElement.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/UI/UIElement.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" column="2" lean-forward="true" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/Builders/UI/KetaUIContainerBuilder.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.clang-format">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/UI/KetaUIContainer.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/UI/KetaUI.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/UI/KetaUI.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameState/Menu.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameState/GameState.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#13#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/UI/KetaUIContainer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/Builders/UI/KetaUIContainerBuilder.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <folding>
+            <element signature="e#14#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+          <folding>
+            <element signature="e#14#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tools/EnumTools.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tools/StringTools.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tools/EnumTools.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2232">
+          <caret line="93" selection-start-line="93" selection-end-line="93" />
+          <folding>
+            <element signature="e#14#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tools/TextureManager.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="12" column="54" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tools/TextureManager.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Levels/Endscreen.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/GameObjectBuilder.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/GameObject.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/GameObjectBuilder.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" column="8" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+          <folding>
+            <element signature="e#14#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/PhysicsWorld.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/Components/PhysicsComponent.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/Components/PhysicsDefinition.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Framework/Components/PhysicsDefinition.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="936">
+          <caret line="39" column="1" lean-forward="true" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
+          <folding>
+            <element signature="e#14#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
