@@ -1,8 +1,48 @@
 #include "App.hpp"
 #include <stdio.h>
+#include "gui.h"
 
 App::App()
 {
+  sf::Event currentEvent {};
+
+  sf::RenderWindow resolutionChooser
+      = sf::RenderWindow(sf::VideoMode(500, 300), "The Unmagical Wand - Settings", sf::Style::Default);
+
+  gui::Gui resolutionChooserGui;
+
+  int number = 0;
+  sf::Font font;
+  font.loadFromFile("art/fonts/temp.ttf");
+  auto label = resolutionChooserGui.createElement<gui::Label>(&font, "Hallo");
+  auto rot = resolutionChooserGui.createElement<gui::Button>(&font, "Welt", [&](auto) {
+    label->setText(std::to_string(++number));
+    return true;
+  });
+
+  rot->setPosition(200, 0);
+
+  while(resolutionChooser.isOpen())
+  {
+    while(resolutionChooser.pollEvent(currentEvent))
+    {
+      switch(currentEvent.type)
+      {
+        case sf::Event::Closed:
+          resolutionChooser.close();
+          break;
+        default:
+          if(resolutionChooserGui.handleEvent(currentEvent))
+            break;
+      }
+    }
+
+    resolutionChooser.clear();
+    resolutionChooser.draw(resolutionChooserGui);
+    resolutionChooser.display();
+
+  }
+
   auto videoModes = sf::VideoMode::getFullscreenModes();
   for(auto& v : videoModes)
   {
@@ -14,13 +54,12 @@ App::App()
   m_window = std::make_unique<sf::RenderWindow>(desktopMode, "The Unmagical Wand", sf::Style::Close);
   m_game = std::make_unique<Game>();
 
-  sf::Event event{};
   sf::Clock frameTime;
   while(m_window->isOpen())
   {
-    while(m_window->pollEvent(event))
+    while(m_window->pollEvent(currentEvent))
     {
-      handleEvent(event);
+      handleEvent(currentEvent);
     }
     m_game->update(frameTime.getElapsedTime().asSeconds());
     m_window->clear(sf::Color::White);

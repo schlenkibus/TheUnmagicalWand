@@ -1,8 +1,7 @@
 #pragma once
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <vector>
-
-class GameObject;
+#include "../Framework/GameObject.h"
 
 class GameState
 {
