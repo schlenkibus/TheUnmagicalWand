@@ -22,17 +22,23 @@ App::App()
 
   rot->setPosition(200, 0);
 
+  gui::Event guiEvent {};
+
   while(resolutionChooser.isOpen())
   {
     while(resolutionChooser.pollEvent(currentEvent))
     {
+      guiEvent.m_event = currentEvent;
+      guiEvent.m_mousePos = [](const sf::Vector2i& i) -> sf::Vector2f {
+        return sf::Vector2f(i.x, i.y);
+      }(sf::Mouse::getPosition(resolutionChooser));
       switch(currentEvent.type)
       {
         case sf::Event::Closed:
           resolutionChooser.close();
           break;
         default:
-          if(resolutionChooserGui.handleEvent(currentEvent))
+          if(resolutionChooserGui.handleEvent(guiEvent))
             break;
       }
     }
@@ -40,8 +46,9 @@ App::App()
     resolutionChooser.clear();
     resolutionChooser.draw(resolutionChooserGui);
     resolutionChooser.display();
-
   }
+
+  return;
 
   auto videoModes = sf::VideoMode::getFullscreenModes();
   for(auto& v : videoModes)

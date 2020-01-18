@@ -10,13 +10,15 @@ namespace gui
 {
   class GuiElement;
 
+  class Event;
+
   class Gui : public sf::Drawable, public sf::Transformable
   {
    protected:
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
    public:
-    bool handleEvent(sf::Event& event);
+    bool handleEvent(const gui::Event& event);
     template <typename tElement, typename... tArgs> tElement* createElement(tArgs... args)
     {
       return static_cast<tElement*>(m_elements.emplace_back(std::make_unique<tElement>(args...)).get());
@@ -29,7 +31,14 @@ namespace gui
   class GuiElement : public sf::Drawable, public sf::Transformable
   {
    public:
-    virtual bool handleEvent(const sf::Event& event) = 0;
+    virtual bool handleEvent(const gui::Event& event) = 0;
+  };
+
+  class Event
+  {
+   public:
+    sf::Vector2f m_mousePos;
+    sf::Event m_event;
   };
 
   void Gui::draw(sf::RenderTarget& target, sf::RenderStates states) const
@@ -38,7 +47,7 @@ namespace gui
       target.draw(*e, states);
   }
 
-  bool Gui::handleEvent(sf::Event& event)
+  bool Gui::handleEvent(const gui::Event& event)
   {
     for(auto& e : m_elements)
     {
@@ -53,7 +62,7 @@ namespace gui
    public:
     Label(sf::Font* font, std::string text);
 
-    bool handleEvent(const sf::Event& event) override
+    bool handleEvent(const gui::Event& event) override
     {
       return false;
     }
@@ -92,10 +101,11 @@ namespace gui
     {
     }
 
-    bool handleEvent(const sf::Event& event) override
+    bool handleEvent(const gui::Event& event) override
     {
-      if(event.type == sf::Event::MouseButtonReleased)
-        if(m_text.getGlobalBounds().contains(event.mouseMove.x, event.mouseMove.y))
+      const auto& sfEvent = event.m_event;
+      if(sfEvent.type == sf::Event::MouseButtonReleased)
+        if(m_text.getGlobalBounds().contains(event.m_mousePos.x, event.m_mousePos.y))
           return m_onClick(this);
 
       return Label::handleEvent(event);
@@ -132,7 +142,7 @@ namespace gui
       return m_entrys[m_index];
     }
 
-    bool handleEvent(const sf::Event& event) override
+    bool handleEvent(const gui::Event& event) override
     {
       return m_next.handleEvent(event) || m_previous.handleEvent(event) || m_currentValue.handleEvent(event);
     }
