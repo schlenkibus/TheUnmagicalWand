@@ -11,5 +11,6 @@ class App
 
  public:
   App();
+  void startGame(const sf::VideoMode& requestedMode, bool fullscreen);
   void handleEvent(const sf::Event& event) const;
 };

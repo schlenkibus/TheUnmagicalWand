@@ -1,80 +1,109 @@
 #include "App.hpp"
 #include <stdio.h>
-#include "gui.h"
+#include <TGUI/TGUI.hpp>
+
+using namespace std::string_literals;
+
+auto populateSettingsDialog(tgui::Gui& gui, std::function<void(const sf::VideoMode&, bool)> startGame,
+                            std::function<void(void)> cancel)
+{
+  auto label = tgui::Label::create("Select your preferred Resolution:");
+
+  gui.setTextSize(20);
+
+  auto dropDown = tgui::ComboBox::create();
+  int i = 0;
+  for(auto& resolutions : sf::VideoMode::getFullscreenModes())
+  {
+    std::stringstream ss;
+    ss << resolutions.width << "x"s << resolutions.height << " "s << resolutions.bitsPerPixel;
+    dropDown->addItem(ss.str(), std::to_string(i));
+
+    i++;
+  }
+
+  auto fullScreen = tgui::CheckBox::create();
+  fullScreen->setChecked(false);
+
+  auto fullScreenLabel = tgui::Label::create("Fullscreen:");
+
+  auto start = tgui::Button::create("Start");
+  start->setEnabled(false);
+
+  dropDown->onItemSelect.connect([=]() { start->setEnabled(true); });
+
+  start->onClick.connect([=]() {
+    startGame(sf::VideoMode::getFullscreenModes()[dropDown->getSelectedItemIndex()], fullScreen->isChecked());
+  });
+
+  auto exit = tgui::Button::create("Exit");
+  exit->onClick.connect([=]() { cancel(); });
+
+  label->setSize({"45%", "10%"});
+  label->setPosition({"2%", "2%"});
+
+  dropDown->setSize({"45%", "5%"});
+  dropDown->setPosition({tgui::bindRight(label), tgui::bindTop(label)});
+
+  fullScreenLabel->setPosition({tgui::bindLeft(label), tgui::bindBottom(dropDown)});
+  fullScreen->setPosition({tgui::bindLeft(dropDown), tgui::bindTop(fullScreenLabel)});
+
+  start->setPosition({tgui::bindLeft(label), tgui::bindBottom(fullScreenLabel)});
+  exit->setPosition({tgui::bindRight(start), tgui::bindBottom(fullScreenLabel)});
+
+  gui.add(label);
+  gui.add(dropDown);
+  gui.add(fullScreenLabel);
+  gui.add(fullScreen);
+  gui.add(start);
+  gui.add(exit);
+}
 
 App::App()
 {
   sf::Event currentEvent {};
 
   sf::RenderWindow resolutionChooser
-      = sf::RenderWindow(sf::VideoMode(500, 300), "The Unmagical Wand - Settings", sf::Style::Default);
+      = sf::RenderWindow(sf::VideoMode(800, 600), "The Unmagical Wand - Settings", sf::Style::Close);
 
-  gui::Gui resolutionChooserGui;
+  tgui::Gui gui(resolutionChooser);
+  populateSettingsDialog(gui, [&](const sf::VideoMode& mode, bool fullscreen) { resolutionChooser.close(); startGame(mode, fullscreen); },
+                         [&]() { resolutionChooser.close(); });
 
-  int number = 0;
-  sf::Font font;
-  font.loadFromFile("art/fonts/temp.ttf");
-  auto label = resolutionChooserGui.createElement<gui::Label>(&font, "Hallo");
-  auto rot = resolutionChooserGui.createElement<gui::Button>(&font, "Welt", [&](auto) {
-    label->setText(std::to_string(++number));
-    return true;
-  });
-
-  rot->setPosition(200, 0);
-
-  gui::Event guiEvent {};
-
+  sf::Clock frameTime;
   while(resolutionChooser.isOpen())
   {
     while(resolutionChooser.pollEvent(currentEvent))
     {
-      guiEvent.m_event = currentEvent;
-      guiEvent.m_mousePos = [](const sf::Vector2i& i) -> sf::Vector2f {
-        return sf::Vector2f(i.x, i.y);
-      }(sf::Mouse::getPosition(resolutionChooser));
-      switch(currentEvent.type)
-      {
-        case sf::Event::Closed:
-          resolutionChooser.close();
-          break;
-        default:
-          if(resolutionChooserGui.handleEvent(guiEvent))
-            break;
-      }
+      if(currentEvent.type == sf::Event::Closed)
+        resolutionChooser.close();
+
+      gui.handleEvent(currentEvent);
     }
 
+    auto delta = frameTime.getElapsedTime();
     resolutionChooser.clear();
-    resolutionChooser.draw(resolutionChooserGui);
+    gui.draw();
     resolutionChooser.display();
-  }
-
-  return;
-
-  auto videoModes = sf::VideoMode::getFullscreenModes();
-  for(auto& v : videoModes)
-  {
-    std::cout << v.width << "x" << v.height << " BitsPerPixel: " << v.bitsPerPixel << std::endl;
-  }
-
-  auto desktopMode = sf::VideoMode::getDesktopMode();
-
-  m_window = std::make_unique<sf::RenderWindow>(desktopMode, "The Unmagical Wand", sf::Style::Close);
-  m_game = std::make_unique<Game>();
-
-  sf::Clock frameTime;
-  while(m_window->isOpen())
-  {
-    while(m_window->pollEvent(currentEvent))
-    {
-      handleEvent(currentEvent);
-    }
-    m_game->update(frameTime.getElapsedTime().asSeconds());
-    m_window->clear(sf::Color::White);
-    m_game->draw(*m_window);
-    m_window->display();
     frameTime.restart();
   }
 }
+
+void App::startGame(const sf::VideoMode& requestedMode, bool fullscreen)
+{
+  sf::RenderWindow window(requestedMode, "The Unmagical Wand", fullscreen ? sf::Style::Fullscreen : sf::Style::Default);
+  sf::Event event{};
+  while(window.isOpen()) {
+    while(window.pollEvent(event)) {
+      if(event.type == sf::Event::Closed)
+        window.close();
+    }
+
+    window.clear();
+    window.display();
+  }
+}
+
 void App::handleEvent(const sf::Event& event) const
 {
   switch(event.type)
@@ -97,7 +126,6 @@ void App::handleEvent(const sf::Event& event) const
     case sf::Event::MouseWheelMoved:
       break;
     case sf::Event::MouseWheelScrolled:
-      m_window->close();
       break;
     case sf::Event::MouseButtonPressed:
       break;
